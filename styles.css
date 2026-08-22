@@ -2424,6 +2424,18 @@ body[data-invite="reception"][data-side="bride"] .contact-grid {
 }
 
 /* Keep the blessing and monogram in normal document flow so they never overlap. */
+.bride-reception-logo {
+  display: none;
+}
+
+body[data-invite="reception"][data-side="bride"] .bride-reception-logo {
+  display: block;
+}
+
+body[data-invite="reception"][data-side="bride"] .default-hero-logo {
+  display: none;
+}
+
 body[data-invite="reception"][data-side="bride"] .hero-content {
   align-content: start;
 }
@@ -2435,6 +2447,10 @@ body[data-invite="reception"][data-side="bride"] .hero-blessing {
   width: min(90%, 32rem);
   margin: clamp(7rem, 9vw, 10rem) auto 1.75rem;
   transform: none;
+}
+
+body[data-invite="reception"][data-side="bride"] .hero-blessing .hero-monogram {
+  margin: 0 auto .85rem;
 }
 
 @media (max-width: 720px) {
