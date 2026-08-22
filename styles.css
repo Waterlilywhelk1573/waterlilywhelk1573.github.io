@@ -2314,3 +2314,83 @@ body.is-locked .quick-nav {
   #utama, #tarikh, #acara, #lokasi, #rsvp { scroll-margin-top: .8rem; }
   footer { padding-bottom: calc(6.5rem + env(safe-area-inset-bottom)); }
 }
+
+/* Bride reception hero and mobile navigation refinements */
+.quick-nav a {
+  justify-items: center;
+  text-align: center;
+}
+
+.quick-nav a small {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+body[data-invite="reception"][data-side="bride"] .hero-blessing {
+  position: absolute;
+  z-index: 3;
+  top: clamp(2.2rem, 5vw, 3.6rem);
+  left: 50%;
+  width: min(90%, 32rem);
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+body[data-invite="reception"][data-side="bride"] .hero-blessing .bismillah {
+  margin: 0 0 .35rem;
+  color: var(--paint-deep);
+}
+
+body[data-invite="reception"][data-side="bride"] .hero-blessing .eyebrow {
+  margin: 0;
+  color: var(--paint-sage);
+  text-shadow: 0 1px 0 rgba(255,255,255,.85);
+}
+
+body[data-invite="reception"][data-side="bride"] .invitation-card img,
+body[data-invite="reception"][data-side="bride"] .hero-monogram,
+body[data-invite="reception"][data-side="bride"] footer img {
+  content: url("bride-reception-monogram-v2.png");
+}
+
+body[data-invite="reception"][data-side="bride"] .hero-monogram {
+  width: clamp(5rem, 11vw, 6.7rem);
+  filter: drop-shadow(0 7px 13px rgba(63,93,134,.1));
+}
+
+body[data-invite="reception"][data-side="bride"] .hero h1 {
+  font-size: clamp(3.15rem, 7.7vw, 5.35rem);
+  line-height: .82;
+}
+
+@media (max-width: 720px) {
+  .quick-nav a {
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+  }
+
+  body[data-invite="reception"][data-side="bride"] .hero-blessing {
+    top: 2rem;
+    width: calc(100% - 2.5rem);
+  }
+
+  body[data-invite="reception"][data-side="bride"] .hero-blessing .bismillah {
+    font-size: clamp(1.05rem, 4.8vw, 1.35rem);
+  }
+
+  body[data-invite="reception"][data-side="bride"] .hero-blessing .eyebrow {
+    font-size: .58rem;
+    letter-spacing: .24em;
+  }
+
+  body[data-invite="reception"][data-side="bride"] .hero-monogram {
+    width: 4.5rem;
+  }
+
+  body[data-invite="reception"][data-side="bride"] .hero h1 {
+    font-size: clamp(2.75rem, 13.4vw, 4rem);
+    line-height: .84;
+  }
+}
