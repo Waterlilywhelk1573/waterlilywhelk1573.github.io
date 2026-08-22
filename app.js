@@ -41,6 +41,10 @@
       : "#8b806d";
   document.querySelector('meta[name="theme-color"]')?.setAttribute("content", themeColor);
 
+  if (invitationType === "family" && lockedSide === "bride") {
+    document.getElementById("openLabelText").textContent = "Buka Gerbang Undangan";
+  }
+
   if (guestName) {
     document.getElementById("guestGreeting").textContent = `Istimewa buat ${guestName}`;
   }
