@@ -1851,3 +1851,235 @@ body[data-invite="reception"][data-side="groom"] .music-control { border-color: 
   body[data-invite="reception"][data-side="groom"] .hero h1 { font-size: clamp(3.2rem, 16vw, 4.7rem); }
   body[data-invite="reception"][data-side="groom"] .invitation-line { max-width: 18rem; font-size: .95rem; }
 }
+
+/* Bride-reception concept v2: Dusty Blue Painted Garden */
+body[data-invite="reception"][data-side="bride"] {
+  --paint-ivory: #fbf7ec;
+  --paint-paper: #fffdf6;
+  --paint-powder: #dfe9f3;
+  --paint-sky: #a8c1de;
+  --paint-blue: #7295c2;
+  --paint-deep: #3f5d86;
+  --paint-ink: #30435f;
+  --paint-sage: #788b6c;
+  --paint-gold: #c2a26b;
+  --paint-white: #fffdf8;
+  background: var(--paint-ivory);
+}
+
+body[data-invite="reception"][data-side="bride"] .opening-screen {
+  --opening-ink: var(--paint-deep);
+  place-content: center;
+  background:
+    radial-gradient(circle at 12% 19%, rgba(168,193,222,.38), transparent 23rem),
+    radial-gradient(circle at 88% 78%, rgba(194,162,107,.16), transparent 25rem),
+    radial-gradient(circle at 50% 46%, rgba(255,255,255,.93), transparent 25rem),
+    repeating-linear-gradient(96deg, rgba(48,67,95,.018) 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(4deg, rgba(48,67,95,.014) 0 1px, transparent 1px 7px),
+    linear-gradient(145deg, #e6eef5, #fbf8ef 50%, #d8e5f1);
+  transition: opacity .82s ease .8s, visibility .82s ease .8s;
+}
+
+body[data-invite="reception"][data-side="bride"] .opening-screen::before {
+  inset: 0;
+  background:
+    url("bride-painted-botanicals.png") left -7vw bottom -22vh / min(46vw, 540px) auto no-repeat,
+    url("bride-painted-botanicals.png") right -8vw top -25vh / min(40vw, 480px) auto no-repeat;
+  opacity: .28;
+  animation: painted-wash-drift 8s ease-in-out infinite alternate;
+  mask: none;
+}
+
+body[data-invite="reception"][data-side="bride"] .opening-screen::after {
+  inset: clamp(.75rem, 2.4vw, 1.6rem);
+  border: 1px solid rgba(63,93,134,.38);
+  border-radius: .55rem;
+  box-shadow: inset 0 0 0 5px rgba(251,247,236,.6), inset 0 0 0 6px rgba(194,162,107,.18), 0 24px 70px rgba(63,93,134,.08);
+}
+
+body[data-invite="reception"][data-side="bride"] .opening-frame {
+  inset: clamp(1.3rem, 3.5vw, 2.45rem);
+  border: 1px solid rgba(114,149,194,.18);
+  border-radius: .35rem;
+  background:
+    repeating-linear-gradient(96deg, rgba(63,93,134,.015) 0 1px, transparent 1px 6px),
+    rgba(255,255,255,.08);
+  box-shadow: inset 0 0 45px rgba(255,255,255,.18);
+  backdrop-filter: blur(1px);
+}
+
+body[data-invite="reception"][data-side="bride"] .opening-frame::before,
+body[data-invite="reception"][data-side="bride"] .opening-frame::after { content: "✾"; color: var(--paint-blue); background: #f3f5f2; font-size: .8rem; }
+body[data-invite="reception"][data-side="bride"] .opening-copy { margin-bottom: .1rem; }
+body[data-invite="reception"][data-side="bride"] .opening-flourish { color: var(--paint-gold); font-size: 1.25rem; text-shadow: none; }
+body[data-invite="reception"][data-side="bride"] .opening-title { color: var(--paint-deep); font: 600 .62rem var(--sans); letter-spacing: .42em; }
+body[data-invite="reception"][data-side="bride"] .guest-greeting { color: rgba(48,67,95,.72); font: italic 500 clamp(1rem, 3vw, 1.3rem)/1.3 var(--literary); }
+
+body[data-invite="reception"][data-side="bride"] .envelope-button { gap: .45rem; color: var(--paint-deep); }
+body[data-invite="reception"][data-side="bride"] .envelope-button:focus-visible { outline-color: var(--paint-blue); }
+body[data-invite="reception"][data-side="bride"] .envelope {
+  width: min(42vw, 300px);
+  aspect-ratio: 889 / 1136;
+  background: url("bride-painted-arch.png") center / contain no-repeat;
+  filter: drop-shadow(0 22px 30px rgba(63,93,134,.15));
+  perspective: none;
+  animation: painted-arch-float 5.4s ease-in-out infinite;
+}
+
+body[data-invite="reception"][data-side="bride"] .envelope-button:hover .envelope { transform: translateY(-4px) scale(1.015); filter: drop-shadow(0 27px 37px rgba(63,93,134,.2)); }
+body[data-invite="reception"][data-side="bride"] .envelope-back,
+body[data-invite="reception"][data-side="bride"] .envelope-pocket,
+body[data-invite="reception"][data-side="bride"] .envelope-flap,
+body[data-invite="reception"][data-side="bride"] .wax-seal,
+body[data-invite="reception"][data-side="bride"] .lace-trim,
+body[data-invite="reception"][data-side="bride"] .envelope::before,
+body[data-invite="reception"][data-side="bride"] .envelope::after { display: none; }
+
+body[data-invite="reception"][data-side="bride"] .invitation-card {
+  inset: 22% 19% 10%;
+  z-index: 2;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  padding: 1rem .75rem;
+  border: 1px solid rgba(114,149,194,.36);
+  border-radius: 48% 48% .35rem .35rem / 17% 17% 3% 3%;
+  background:
+    repeating-linear-gradient(98deg, rgba(63,93,134,.022) 0 1px, transparent 1px 5px),
+    linear-gradient(145deg, rgba(255,253,246,.94), rgba(235,243,249,.8));
+  box-shadow: inset 0 0 0 4px rgba(255,255,255,.58), 0 13px 30px rgba(63,93,134,.09);
+  color: var(--paint-deep);
+  backdrop-filter: blur(2px);
+  transform: none;
+  transition: transform .9s cubic-bezier(.2,.8,.2,1), opacity .55s ease .2s;
+}
+
+body[data-invite="reception"][data-side="bride"] .invitation-card::before { content: "❀"; inset: auto; top: .58rem; color: var(--paint-blue); font-size: .7rem; border: 0; animation: none; }
+body[data-invite="reception"][data-side="bride"] .invitation-card::after { content: "〰"; inset: auto; bottom: .45rem; color: var(--paint-gold); font-size: .75rem; border: 0; transform: translateX(-50%); }
+body[data-invite="reception"][data-side="bride"] .invitation-card img { content: url("reception-monogram.png"); width: clamp(3.8rem, 10vw, 5.2rem); height: auto; margin: .3rem 0 .1rem; object-fit: contain; mix-blend-mode: normal; opacity: 1; filter: drop-shadow(0 5px 9px rgba(63,93,134,.08)); }
+body[data-invite="reception"][data-side="bride"] .invitation-card .card-kicker { display: block; color: var(--paint-sage); font: 600 .45rem var(--sans); letter-spacing: .22em; }
+body[data-invite="reception"][data-side="bride"] .invitation-card .card-names { display: block; color: var(--paint-deep); font: clamp(1.2rem, 4vw, 1.7rem)/1 var(--script); }
+body[data-invite="reception"][data-side="bride"] .invitation-card .card-rule { display: block; width: 2.8rem; height: 1px; margin: .28rem 0; background: linear-gradient(90deg, transparent, var(--paint-gold), transparent); }
+body[data-invite="reception"][data-side="bride"] .invitation-card .card-date { position: static; color: var(--paint-deep); font: 600 .46rem var(--sans); letter-spacing: .28em; }
+
+body[data-invite="reception"][data-side="bride"] .opening-screen.is-opening .invitation-card { transform: translateY(-7%) scale(1.06); opacity: .12; }
+body[data-invite="reception"][data-side="bride"] .opening-screen.is-opening .envelope { animation-play-state: paused; transform: scale(1.1); opacity: .18; transition: transform .9s ease, opacity .65s ease .2s; }
+body[data-invite="reception"][data-side="bride"] .open-label { color: var(--paint-deep); letter-spacing: .18em; }
+body[data-invite="reception"][data-side="bride"] .open-label b { font-weight: 500; }
+body[data-invite="reception"][data-side="bride"] .open-label i { background: linear-gradient(90deg, transparent, var(--paint-blue)); }
+body[data-invite="reception"][data-side="bride"] .opening-hint { color: rgba(48,67,95,.55); margin-top: .55rem; }
+
+body[data-invite="reception"][data-side="bride"] .hero {
+  min-height: 100svh;
+  color: var(--paint-ink);
+  background:
+    radial-gradient(circle at 10% 20%, rgba(168,193,222,.38), transparent 24rem),
+    radial-gradient(circle at 87% 76%, rgba(194,162,107,.14), transparent 26rem),
+    repeating-linear-gradient(96deg, rgba(48,67,95,.018) 0 1px, transparent 1px 5px),
+    linear-gradient(145deg, #e4edf5, #fbf8ee 50%, #d8e6f1);
+}
+
+body[data-invite="reception"][data-side="bride"] .hero::before {
+  inset: clamp(1rem, 4vw, 2.4rem);
+  border-color: rgba(63,93,134,.34);
+  border-radius: .55rem;
+  box-shadow: inset 0 0 0 5px rgba(251,247,236,.72), inset 0 0 0 6px rgba(194,162,107,.16);
+}
+
+body[data-invite="reception"][data-side="bride"] .hero-content {
+  isolation: isolate;
+  max-width: 55rem;
+  min-height: min(90svh, 55rem);
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  padding: clamp(6rem, 10vw, 8rem) clamp(3rem, 10vw, 8rem) clamp(4.5rem, 8vw, 6rem);
+  border: 1px solid rgba(114,149,194,.2);
+  border-radius: 46% 46% .8rem .8rem / 13% 13% 2% 2%;
+  background:
+    repeating-linear-gradient(98deg, rgba(63,93,134,.016) 0 1px, transparent 1px 6px),
+    linear-gradient(145deg, rgba(255,255,255,.73), rgba(238,244,248,.36));
+  box-shadow: inset 0 1px 0 white, 0 28px 75px rgba(63,93,134,.09);
+  backdrop-filter: blur(8px);
+}
+
+body[data-invite="reception"][data-side="bride"] .hero-content::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -5% -12%;
+  background: url("bride-painted-arch.png") center / contain no-repeat;
+  opacity: .68;
+  pointer-events: none;
+  animation: painted-entrance 1.35s cubic-bezier(.2,.75,.2,1) both;
+}
+
+body[data-invite="reception"][data-side="bride"] .hero-content > * { position: relative; z-index: 1; }
+body[data-invite="reception"][data-side="bride"] .hero-monogram { content: url("reception-monogram.png"); width: clamp(5.4rem, 13vw, 7.4rem); height: auto; margin: .6rem auto .15rem; object-fit: contain; mix-blend-mode: normal; opacity: 1; filter: drop-shadow(0 8px 13px rgba(63,93,134,.08)); }
+body[data-invite="reception"][data-side="bride"] .bismillah { margin-bottom: .8rem; color: var(--paint-deep); }
+body[data-invite="reception"][data-side="bride"] .hero .eyebrow { color: var(--paint-sage); }
+body[data-invite="reception"][data-side="bride"] .hero h1 { margin: .1rem 0 1rem; color: var(--paint-deep); font-family: var(--script); font-size: clamp(3.6rem, 8.8vw, 6.25rem); font-weight: 400; line-height: .79; letter-spacing: 0; text-shadow: 0 10px 26px rgba(63,93,134,.08); }
+body[data-invite="reception"][data-side="bride"] .hero h1 small { color: var(--paint-gold); font-family: var(--serif); font-size: .36em; }
+body[data-invite="reception"][data-side="bride"] .invitation-line { max-width: 34rem; margin-bottom: 1rem; color: rgba(48,67,95,.68); font-family: var(--literary); font-size: clamp(1rem, 2.5vw, 1.22rem); }
+body[data-invite="reception"][data-side="bride"] .invite-badge { border-color: rgba(63,93,134,.4); color: var(--paint-deep); background: rgba(255,255,255,.45); }
+body[data-invite="reception"][data-side="bride"] .scroll-cue { margin-top: 1.7rem; color: rgba(48,67,95,.58); }
+body[data-invite="reception"][data-side="bride"] .botanical { display: block; width: clamp(15rem, 32vw, 30rem); aspect-ratio: 1240 / 1748; background: url("bride-painted-botanicals.png") center / contain no-repeat; opacity: .72; }
+body[data-invite="reception"][data-side="bride"] .botanical::before,
+body[data-invite="reception"][data-side="bride"] .botanical::after { display: none; }
+body[data-invite="reception"][data-side="bride"] .botanical-left { left: -8%; bottom: -22%; transform: rotate(-4deg); }
+body[data-invite="reception"][data-side="bride"] .botanical-right { right: -9%; top: -24%; transform: scaleX(-1) rotate(-5deg); }
+
+body[data-invite="reception"][data-side="bride"] .verse-section { color: var(--paint-deep); background: radial-gradient(circle at 50% 100%, rgba(168,193,222,.26), transparent 24rem), var(--paint-paper); }
+body[data-invite="reception"][data-side="bride"] .verse-section blockquote { color: var(--paint-deep); font-family: var(--literary); }
+body[data-invite="reception"][data-side="bride"] .verse-credit { color: rgba(48,67,95,.56); }
+body[data-invite="reception"][data-side="bride"] .parents-section { background: linear-gradient(145deg, #e8f0f6, #faf6eb); }
+body[data-invite="reception"][data-side="bride"] .section-heading h2 { color: var(--paint-deep); font-family: var(--script); font-weight: 400; }
+body[data-invite="reception"][data-side="bride"] .parents-grid article { padding: 2.3rem 1.5rem; border: 1px solid rgba(114,149,194,.27); border-radius: 3.5rem 3.5rem .65rem .65rem; background: rgba(255,253,246,.7); box-shadow: inset 0 1px 0 white, 0 18px 46px rgba(63,93,134,.06); backdrop-filter: blur(7px); }
+body[data-invite="reception"][data-side="bride"] .date-section { background: radial-gradient(circle at 16% 14%, rgba(255,255,255,.12), transparent 18rem), linear-gradient(145deg, #5576a1, #789bc5); }
+body[data-invite="reception"][data-side="bride"] .date-card { color: white; border-color: rgba(255,253,248,.42); border-radius: 4rem 4rem .65rem .65rem; background: rgba(255,255,255,.055); box-shadow: 0 22px 60px rgba(36,58,88,.13); backdrop-filter: blur(8px); }
+body[data-invite="reception"][data-side="bride"] .date-card .eyebrow { color: #f0ddba; }
+body[data-invite="reception"][data-side="bride"] .events-section { overflow: hidden; background: linear-gradient(180deg, #fbf8ef, #e3edf5); }
+body[data-invite="reception"][data-side="bride"] .events-section::before { content: ""; position: absolute; right: -10rem; bottom: -14rem; width: 30rem; aspect-ratio: 1240 / 1748; background: url("bride-painted-botanicals.png") center / contain no-repeat; opacity: .12; pointer-events: none; }
+body[data-invite="reception"][data-side="bride"] .event-card { border-color: rgba(114,149,194,.3); border-radius: .6rem 2.7rem .6rem 2.7rem; background: linear-gradient(145deg, rgba(255,255,255,.84), rgba(228,238,247,.7)); box-shadow: inset 0 1px 0 white, 0 24px 58px rgba(63,93,134,.09); backdrop-filter: blur(9px); }
+body[data-invite="reception"][data-side="bride"] .event-card h3,
+body[data-invite="reception"][data-side="bride"] .venue-card h3 { color: var(--paint-deep); font-family: var(--script); font-size: clamp(2.5rem, 6vw, 3.8rem); }
+body[data-invite="reception"][data-side="bride"] .venue-card { border: 1px solid rgba(120,139,108,.3); border-radius: 2.4rem .6rem 2.4rem .6rem; background: linear-gradient(145deg, rgba(237,241,229,.92), rgba(226,237,246,.84)); box-shadow: 0 20px 50px rgba(63,93,134,.07); }
+body[data-invite="reception"][data-side="bride"] .button { border-radius: 999px; }
+body[data-invite="reception"][data-side="bride"] .button.primary { border-color: var(--paint-deep); background: var(--paint-deep); }
+body[data-invite="reception"][data-side="bride"] .button.secondary { border-color: var(--paint-blue); color: var(--paint-deep); }
+body[data-invite="reception"][data-side="bride"] .timeline-section { background: #fffdf6; }
+body[data-invite="reception"][data-side="bride"] .timeline-item::before { background: rgba(114,149,194,.3); }
+body[data-invite="reception"][data-side="bride"] .timeline-item::after { background: var(--paint-blue); box-shadow: 0 0 0 5px #fffdf6; }
+body[data-invite="reception"][data-side="bride"] .rsvp-section { background: radial-gradient(circle at 82% 20%, rgba(168,193,222,.18), transparent 23rem), linear-gradient(145deg, #3f5d86, #6688b2); }
+body[data-invite="reception"][data-side="bride"] .rsvp-shell { border-color: rgba(255,253,248,.34); border-radius: .7rem 3rem .7rem 3rem; background: rgba(255,255,255,.045); backdrop-filter: blur(9px); }
+body[data-invite="reception"][data-side="bride"] .contact-section { background: linear-gradient(180deg, #e3edf5, #fbf8ef); }
+body[data-invite="reception"][data-side="bride"] .contact-family { border-radius: 2rem .6rem 2rem .6rem; border-color: rgba(114,149,194,.24); background: rgba(255,255,255,.66); box-shadow: 0 18px 44px rgba(63,93,134,.06); }
+body[data-invite="reception"][data-side="bride"] footer { color: var(--paint-deep); background: radial-gradient(circle at 50% 100%, rgba(168,193,222,.45), transparent 22rem), var(--paint-paper); }
+body[data-invite="reception"][data-side="bride"] footer img { content: url("reception-monogram.png"); width: 5.3rem; height: 5rem; object-fit: contain; mix-blend-mode: normal; opacity: 1; }
+body[data-invite="reception"][data-side="bride"] footer p { color: rgba(48,67,95,.6); }
+body[data-invite="reception"][data-side="bride"] .music-control { border-color: rgba(255,255,255,.6); background: rgba(63,93,134,.76); }
+
+@keyframes painted-arch-float { 0%,100% { transform: translateY(0) rotate(-.2deg); } 50% { transform: translateY(-.5rem) rotate(.2deg); } }
+@keyframes painted-wash-drift { from { transform: translateY(-.3rem); } to { transform: translateY(.4rem); } }
+@keyframes painted-entrance { from { opacity: 0; transform: scale(.93); } to { opacity: .68; transform: scale(1); } }
+
+@media (max-width: 720px) {
+  body[data-invite="reception"][data-side="bride"] .opening-screen { padding: .9rem; }
+  body[data-invite="reception"][data-side="bride"] .opening-screen::before { background-position: left -25vw bottom -6vh, right -26vw top -5vh; background-size: 72vw auto, 64vw auto; opacity: .2; }
+  body[data-invite="reception"][data-side="bride"] .opening-screen::after { border-radius: .4rem; }
+  body[data-invite="reception"][data-side="bride"] .opening-frame { border-radius: .25rem; }
+  body[data-invite="reception"][data-side="bride"] .opening-copy { margin-bottom: .05rem; }
+  body[data-invite="reception"][data-side="bride"] .guest-greeting { max-width: 18rem; font-size: .96rem; }
+  body[data-invite="reception"][data-side="bride"] .envelope { width: min(62vw, 270px); }
+  body[data-invite="reception"][data-side="bride"] .invitation-card { inset: 21% 18% 9%; padding: .7rem .55rem; }
+  body[data-invite="reception"][data-side="bride"] .invitation-card img { width: 3.8rem; }
+  body[data-invite="reception"][data-side="bride"] .opening-hint { max-width: 17rem; font-size: .64rem; }
+  body[data-invite="reception"][data-side="bride"] .hero { padding: 4.5rem .65rem 3rem; }
+  body[data-invite="reception"][data-side="bride"] .hero::before { inset: .7rem; border-radius: .4rem; }
+  body[data-invite="reception"][data-side="bride"] .hero-content { min-height: 92svh; margin: .3rem; padding: 6.4rem 1.5rem 5rem; border-radius: 3.4rem 3.4rem .6rem .6rem; }
+  body[data-invite="reception"][data-side="bride"] .hero-content::before { inset: -2% -19%; opacity: .64; }
+  body[data-invite="reception"][data-side="bride"] .hero-monogram { width: 4.8rem; }
+  body[data-invite="reception"][data-side="bride"] .hero h1 { font-size: clamp(3.25rem, 16vw, 4.75rem); }
+  body[data-invite="reception"][data-side="bride"] .invitation-line { max-width: 18rem; font-size: .94rem; }
+  body[data-invite="reception"][data-side="bride"] .botanical { opacity: .45; }
+}
