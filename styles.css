@@ -1412,3 +1412,230 @@ body[data-invite="reception"][data-side="bride"] footer p { color: rgba(247,251,
   body[data-invite="reception"][data-side="bride"] .hero-content { margin: .8rem; padding: 2rem 1rem; border-radius: 2rem; }
   body[data-invite="reception"][data-side="bride"] .hero h1 { font-size: clamp(3.1rem, 15vw, 4.6rem); }
 }
+
+/* Groom-reception concept preview: Botanical Glasshouse × Luxury Monogram */
+body[data-invite="reception"][data-side="groom"] {
+  --garden-ivory: #f7f3e9;
+  --garden-paper: #fffdf8;
+  --garden-sage: #71806f;
+  --garden-sage-deep: #405044;
+  --garden-sage-pale: #dfe6dc;
+  --garden-blue: #9eb1bd;
+  --garden-gold: #a77c42;
+  --garden-gold-pale: #d7c092;
+  --garden-ink: #28332e;
+  background: var(--garden-ivory);
+}
+
+body[data-invite="reception"][data-side="groom"] .opening-screen {
+  --opening-ink: var(--garden-ink);
+  place-content: center;
+  background:
+    radial-gradient(circle at 17% 24%, rgba(158,177,189,.24), transparent 22rem),
+    radial-gradient(circle at 84% 74%, rgba(113,128,111,.2), transparent 25rem),
+    linear-gradient(115deg, transparent 0 47%, rgba(255,255,255,.64) 47.2% 48.2%, transparent 48.5%),
+    repeating-linear-gradient(94deg, rgba(64,80,68,.018) 0 1px, transparent 1px 6px),
+    linear-gradient(145deg, #edf0e9, #fffdf8 48%, #eee6d7);
+  transition: opacity .78s ease .7s, visibility .78s ease .7s;
+}
+
+body[data-invite="reception"][data-side="groom"] .opening-screen::before {
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent calc(50% - 1px), rgba(167,124,66,.1) 50%, transparent calc(50% + 1px)),
+    repeating-linear-gradient(90deg, transparent 0 calc(12.5% - 1px), rgba(64,80,68,.07) calc(12.5% - 1px) 12.5%),
+    linear-gradient(17deg, transparent 49.8%, rgba(255,255,255,.7) 50%, transparent 50.3%);
+  mask: linear-gradient(#000, transparent 76%);
+}
+
+body[data-invite="reception"][data-side="groom"] .opening-screen::after {
+  inset: clamp(.8rem, 2.5vw, 1.7rem);
+  border-color: rgba(167,124,66,.42);
+  border-radius: 9rem 9rem 1.4rem 1.4rem;
+  box-shadow: inset 0 0 0 5px rgba(255,253,248,.64), inset 0 0 0 6px rgba(113,128,111,.1), 0 28px 80px rgba(64,80,68,.08);
+}
+
+body[data-invite="reception"][data-side="groom"] .opening-frame {
+  inset: clamp(1.35rem, 3.6vw, 2.6rem);
+  border-color: rgba(113,128,111,.18);
+  border-radius: 8rem 8rem 1rem 1rem;
+  background: linear-gradient(145deg, rgba(255,255,255,.24), rgba(255,255,255,.04));
+  box-shadow: inset 0 0 60px rgba(255,255,255,.18);
+  backdrop-filter: blur(1px);
+}
+
+body[data-invite="reception"][data-side="groom"] .opening-frame::before,
+body[data-invite="reception"][data-side="groom"] .opening-frame::after { content: "❦"; color: var(--garden-gold); background: #f8f5ed; }
+body[data-invite="reception"][data-side="groom"] .opening-copy { margin-bottom: .55rem; }
+body[data-invite="reception"][data-side="groom"] .opening-flourish { color: var(--garden-gold); font-size: 1.35rem; }
+body[data-invite="reception"][data-side="groom"] .opening-title { color: var(--garden-sage-deep); font-size: .65rem; letter-spacing: .45em; }
+body[data-invite="reception"][data-side="groom"] .guest-greeting { color: #6d6a5f; font: italic 500 clamp(1.05rem, 3vw, 1.35rem)/1.3 var(--literary); }
+
+body[data-invite="reception"][data-side="groom"] .envelope-button { gap: .8rem; color: var(--garden-sage-deep); }
+body[data-invite="reception"][data-side="groom"] .envelope-button:focus-visible { outline-color: var(--garden-gold); }
+body[data-invite="reception"][data-side="groom"] .envelope {
+  width: min(58vw, 285px);
+  aspect-ratio: .94;
+  filter: drop-shadow(0 22px 40px rgba(64,80,68,.13));
+  perspective: none;
+  animation: garden-monogram-float 5.5s ease-in-out infinite;
+}
+
+body[data-invite="reception"][data-side="groom"] .envelope-button:hover .envelope { transform: translateY(-4px) scale(1.015); filter: drop-shadow(0 28px 46px rgba(64,80,68,.18)); }
+body[data-invite="reception"][data-side="groom"] .envelope-back,
+body[data-invite="reception"][data-side="groom"] .envelope-pocket,
+body[data-invite="reception"][data-side="groom"] .envelope-flap,
+body[data-invite="reception"][data-side="groom"] .wax-seal { display: none; }
+
+body[data-invite="reception"][data-side="groom"] .invitation-card {
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+  transition: transform .85s cubic-bezier(.2,.8,.2,1), filter .75s ease, opacity .5s ease .2s;
+}
+
+body[data-invite="reception"][data-side="groom"] .invitation-card::before {
+  content: "";
+  inset: -8% -18%;
+  border: 1px solid rgba(167,124,66,.3);
+  border-radius: 50% 50% 46% 54%;
+  animation: garden-orbit 17s linear infinite;
+}
+
+body[data-invite="reception"][data-side="groom"] .invitation-card::after {
+  content: "";
+  inset: 10% -30%;
+  border: 1px solid rgba(113,128,111,.18);
+  border-radius: 48%;
+  transform: rotate(63deg);
+}
+
+body[data-invite="reception"][data-side="groom"] .invitation-card img {
+  content: url("groom-reception-monogram.png");
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: contain;
+  mix-blend-mode: normal;
+  opacity: 1;
+  filter: drop-shadow(0 12px 18px rgba(108,81,40,.12));
+}
+
+body[data-invite="reception"][data-side="groom"] .invitation-card .card-kicker,
+body[data-invite="reception"][data-side="groom"] .invitation-card .card-names,
+body[data-invite="reception"][data-side="groom"] .invitation-card .card-rule { display: none; }
+body[data-invite="reception"][data-side="groom"] .invitation-card .card-date { position: absolute; bottom: -.2rem; color: var(--garden-sage-deep); font: 600 .56rem var(--sans); letter-spacing: .36em; }
+
+body[data-invite="reception"][data-side="groom"] .lace-trim {
+  z-index: 1;
+  top: 5%;
+  width: 42%;
+  height: 82%;
+  border: 1px solid rgba(113,128,111,.24);
+  background: linear-gradient(145deg, rgba(113,128,111,.11), rgba(255,255,255,.02));
+  box-shadow: inset 0 0 22px rgba(113,128,111,.05);
+  opacity: .72;
+  animation: glass-leaf-sway 6s ease-in-out infinite alternate;
+}
+body[data-invite="reception"][data-side="groom"] .lace-left { left: -34%; border-radius: 100% 0 100% 0; transform: rotate(-20deg); }
+body[data-invite="reception"][data-side="groom"] .lace-right { right: -34%; border-radius: 0 100% 0 100%; transform: rotate(20deg); animation-delay: -2.5s; }
+body[data-invite="reception"][data-side="groom"] .lace-trim::after { inset: 14%; border: 1px solid rgba(167,124,66,.16); border-radius: inherit; }
+
+body[data-invite="reception"][data-side="groom"] .opening-screen.is-opening .invitation-card { transform: scale(1.18); filter: blur(1px) drop-shadow(0 18px 32px rgba(64,80,68,.18)); opacity: .16; }
+body[data-invite="reception"][data-side="groom"] .opening-screen.is-opening .envelope { animation-play-state: paused; }
+body[data-invite="reception"][data-side="groom"] .open-label { color: var(--garden-sage-deep); letter-spacing: .2em; }
+body[data-invite="reception"][data-side="groom"] .open-label b { font-weight: 500; }
+body[data-invite="reception"][data-side="groom"] .open-label i { background: linear-gradient(90deg, transparent, var(--garden-gold)); }
+body[data-invite="reception"][data-side="groom"] .opening-hint { color: rgba(40,51,46,.56); }
+
+body[data-invite="reception"][data-side="groom"] .hero {
+  min-height: 100svh;
+  color: var(--garden-ink);
+  background:
+    radial-gradient(circle at 14% 26%, rgba(158,177,189,.26), transparent 25rem),
+    radial-gradient(circle at 84% 70%, rgba(113,128,111,.2), transparent 26rem),
+    linear-gradient(114deg, transparent 0 48%, rgba(255,255,255,.72) 48.2% 49%, transparent 49.3%),
+    linear-gradient(145deg, #edf1eb, #fffdf8 47%, #ede5d5);
+}
+
+body[data-invite="reception"][data-side="groom"] .hero::before {
+  inset: clamp(1rem, 4vw, 2.5rem);
+  border-color: rgba(167,124,66,.42);
+  border-radius: 11rem 11rem 1.5rem 1.5rem;
+  box-shadow: inset 0 0 0 5px rgba(255,253,248,.72), inset 0 0 0 6px rgba(113,128,111,.12);
+}
+
+body[data-invite="reception"][data-side="groom"] .hero-content {
+  max-width: 47rem;
+  padding: clamp(2.25rem, 5vw, 4rem);
+  border: 1px solid rgba(255,255,255,.7);
+  border-radius: 8rem 8rem 2rem 2rem;
+  background: linear-gradient(145deg, rgba(255,255,255,.64), rgba(255,255,255,.25));
+  box-shadow: inset 0 1px 0 white, 0 30px 80px rgba(64,80,68,.1);
+  backdrop-filter: blur(13px);
+}
+
+body[data-invite="reception"][data-side="groom"] .hero-monogram {
+  content: url("groom-reception-monogram.png");
+  width: clamp(8rem, 20vw, 11.5rem);
+  height: clamp(7.4rem, 19vw, 10.8rem);
+  margin: .8rem auto .35rem;
+  object-fit: contain;
+  mix-blend-mode: normal;
+  opacity: 1;
+  filter: drop-shadow(0 13px 18px rgba(108,81,40,.1));
+}
+
+body[data-invite="reception"][data-side="groom"] .bismillah,
+body[data-invite="reception"][data-side="groom"] .hero .eyebrow { color: var(--garden-sage-deep); }
+body[data-invite="reception"][data-side="groom"] .hero h1 { color: var(--garden-ink); font-family: var(--serif); font-size: clamp(3.45rem, 8.5vw, 5.8rem); font-weight: 400; line-height: .84; letter-spacing: -.045em; text-shadow: 0 10px 28px rgba(64,80,68,.08); }
+body[data-invite="reception"][data-side="groom"] .hero h1 small { color: var(--garden-gold); }
+body[data-invite="reception"][data-side="groom"] .invitation-line { color: rgba(40,51,46,.68); }
+body[data-invite="reception"][data-side="groom"] .invite-badge { border-color: rgba(167,124,66,.52); color: #76572e; background: rgba(255,255,255,.32); }
+body[data-invite="reception"][data-side="groom"] .scroll-cue { color: rgba(40,51,46,.58); }
+body[data-invite="reception"][data-side="groom"] .botanical { opacity: .74; }
+body[data-invite="reception"][data-side="groom"] .botanical::before { border-color: rgba(113,128,111,.4); background: rgba(113,128,111,.035); backdrop-filter: blur(4px); }
+body[data-invite="reception"][data-side="groom"] .botanical::after { border-color: rgba(167,124,66,.3); }
+
+body[data-invite="reception"][data-side="groom"] .verse-section { color: var(--garden-paper); background: radial-gradient(circle at 50% 0, rgba(215,192,146,.16), transparent 22rem), linear-gradient(145deg, #657363, #405044); }
+body[data-invite="reception"][data-side="groom"] .verse-section blockquote { color: var(--garden-paper); }
+body[data-invite="reception"][data-side="groom"] .verse-credit { color: rgba(255,253,248,.62); }
+body[data-invite="reception"][data-side="groom"] .parents-section { background: linear-gradient(145deg, #f8f4e9, #e6ece3); }
+body[data-invite="reception"][data-side="groom"] .parents-grid article { padding: 2.2rem 1.5rem; border: 1px solid rgba(113,128,111,.22); border-radius: 4rem 4rem 1.4rem 1.4rem; background: rgba(255,255,255,.54); box-shadow: inset 0 1px 0 white, 0 18px 46px rgba(64,80,68,.06); backdrop-filter: blur(8px); }
+body[data-invite="reception"][data-side="groom"] .date-section { background: linear-gradient(145deg, #e7eadd, #f7f0e2); }
+body[data-invite="reception"][data-side="groom"] .date-card { color: var(--garden-ink); border-color: rgba(167,124,66,.34); border-radius: 7rem 7rem 2rem 2rem; background: rgba(255,255,255,.46); box-shadow: 0 22px 60px rgba(64,80,68,.08); backdrop-filter: blur(8px); }
+body[data-invite="reception"][data-side="groom"] .events-section { background: linear-gradient(180deg, #fffdf8, #e5ebe2); }
+body[data-invite="reception"][data-side="groom"] .event-card { border-color: rgba(113,128,111,.3); border-radius: 1.6rem; background: linear-gradient(145deg, rgba(255,255,255,.76), rgba(223,230,220,.58)); box-shadow: inset 0 1px 0 white, 0 24px 58px rgba(64,80,68,.09); backdrop-filter: blur(10px); }
+body[data-invite="reception"][data-side="groom"] .venue-card { border: 1px solid rgba(167,124,66,.3); border-radius: 1.6rem; background: linear-gradient(145deg, rgba(248,242,228,.88), rgba(226,234,224,.82)); box-shadow: 0 20px 50px rgba(64,80,68,.07); }
+body[data-invite="reception"][data-side="groom"] .button { border-radius: 999px; }
+body[data-invite="reception"][data-side="groom"] .timeline-section { background: #fbf8f0; }
+body[data-invite="reception"][data-side="groom"] .rsvp-section { background: radial-gradient(circle at 80% 20%, rgba(215,192,146,.16), transparent 23rem), linear-gradient(145deg, #405044, #687666); }
+body[data-invite="reception"][data-side="groom"] .rsvp-shell { border-color: rgba(215,192,146,.32); border-radius: 2rem; background: rgba(255,255,255,.045); backdrop-filter: blur(9px); }
+body[data-invite="reception"][data-side="groom"] .contact-section { background: linear-gradient(180deg, #e5ebe2, #f8f4e9); }
+body[data-invite="reception"][data-side="groom"] .contact-family { border-radius: 1.4rem; background: rgba(255,255,255,.58); box-shadow: 0 18px 44px rgba(64,80,68,.06); }
+body[data-invite="reception"][data-side="groom"] footer { color: var(--garden-paper); background: var(--garden-sage-deep); }
+body[data-invite="reception"][data-side="groom"] footer img { content: url("groom-reception-monogram.png"); width: 5.4rem; height: 5rem; object-fit: contain; mix-blend-mode: normal; opacity: 1; }
+body[data-invite="reception"][data-side="groom"] footer p { color: rgba(255,253,248,.62); }
+
+@keyframes garden-monogram-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-.55rem); } }
+@keyframes garden-orbit { to { transform: rotate(360deg); } }
+@keyframes glass-leaf-sway { from { margin-top: -.2rem; } to { margin-top: .35rem; } }
+
+@media (max-width: 720px) {
+  body[data-invite="reception"][data-side="groom"] .opening-screen { padding: 1rem; }
+  body[data-invite="reception"][data-side="groom"] .opening-screen::after { border-radius: 6rem 6rem 1rem 1rem; }
+  body[data-invite="reception"][data-side="groom"] .opening-frame { border-radius: 5.5rem 5.5rem .8rem .8rem; }
+  body[data-invite="reception"][data-side="groom"] .opening-copy { margin-bottom: .45rem; }
+  body[data-invite="reception"][data-side="groom"] .guest-greeting { max-width: 18rem; font-size: 1rem; }
+  body[data-invite="reception"][data-side="groom"] .envelope { width: min(58vw, 230px); }
+  body[data-invite="reception"][data-side="groom"] .opening-hint { max-width: 17rem; margin-top: .6rem; font-size: .66rem; }
+  body[data-invite="reception"][data-side="groom"] .hero-content { margin: .8rem; padding: 2rem 1rem; border-radius: 5rem 5rem 1.5rem 1.5rem; }
+  body[data-invite="reception"][data-side="groom"] .hero h1 { font-size: clamp(3rem, 15vw, 4.5rem); }
+}

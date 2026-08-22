@@ -36,6 +36,8 @@
   document.body.dataset.side = lockedSide || "public";
   const themeColor = invitationType === "reception" && lockedSide === "bride"
     ? "#18283f"
+    : invitationType === "reception" && lockedSide === "groom"
+      ? "#71806f"
     : invitationType === "family" && lockedSide === "bride"
       ? "#718da4"
       : invitationType === "family" && lockedSide === "groom"
@@ -49,6 +51,8 @@
     document.getElementById("openLabelText").textContent = "Buka Naskhah Undangan";
   } else if (invitationType === "reception" && lockedSide === "bride") {
     document.getElementById("openLabelText").textContent = "Masuki Taman Cahaya";
+  } else if (invitationType === "reception" && lockedSide === "groom") {
+    document.getElementById("openLabelText").textContent = "Buka Undangan";
   }
 
   if (guestName) {
