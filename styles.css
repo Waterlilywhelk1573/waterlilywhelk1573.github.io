@@ -1127,3 +1127,288 @@ body[data-invite="family"][data-side="groom"] footer { background: var(--groom-c
   body[data-invite="family"][data-side="groom"] .hero-content { margin: 1rem; padding: 2rem 1.2rem; }
   body[data-invite="family"][data-side="groom"] .hero h1 { font-size: clamp(3.1rem, 15vw, 4.6rem); }
 }
+
+/* Bride-reception concept preview: Celestial Botanical Glasshouse */
+body[data-invite="reception"][data-side="bride"] {
+  --glass-midnight: #101b2f;
+  --glass-navy: #1a2d49;
+  --glass-blue: #7f9fc7;
+  --glass-sage: #8a9b85;
+  --glass-ivory: #f7f3e8;
+  --glass-gold: #d2b579;
+  --glass-gold-pale: #eadbb8;
+  --glass-white: #f8fbff;
+  background: var(--glass-midnight);
+}
+
+body[data-invite="reception"][data-side="bride"] .opening-screen {
+  --opening-ink: #f7f3e8;
+  place-content: center;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(127,159,199,.22), transparent 22rem),
+    radial-gradient(circle at 84% 76%, rgba(138,155,133,.17), transparent 25rem),
+    radial-gradient(circle at 50% 42%, rgba(210,181,121,.1), transparent 17rem),
+    radial-gradient(circle at 17% 22%, rgba(255,255,255,.78) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 78% 17%, rgba(255,255,255,.62) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 88% 61%, rgba(210,181,121,.72) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 31% 76%, rgba(255,255,255,.54) 0 1px, transparent 1.7px),
+    linear-gradient(145deg, #0d1728, #192c48 54%, #0e1b2d);
+  background-size: auto, auto, auto, 8rem 9rem, 11rem 12rem, 13rem 10rem, 10rem 13rem, auto;
+  transition: opacity .75s ease .7s, visibility .75s ease .7s;
+}
+
+body[data-invite="reception"][data-side="bride"] .opening-screen::before {
+  background:
+    radial-gradient(ellipse at 50% 50%, transparent 0 14rem, rgba(210,181,121,.12) 14.1rem 14.2rem, transparent 14.3rem),
+    radial-gradient(ellipse at 50% 50%, transparent 0 20rem, rgba(127,159,199,.1) 20.1rem 20.2rem, transparent 20.3rem);
+  animation: celestial-drift 14s ease-in-out infinite alternate;
+}
+
+body[data-invite="reception"][data-side="bride"] .opening-screen::after {
+  inset: clamp(.85rem, 2.5vw, 1.7rem);
+  border-color: rgba(210,181,121,.46);
+  border-radius: 2.4rem;
+  box-shadow: inset 0 0 0 5px rgba(11,22,38,.68), inset 0 0 0 6px rgba(127,159,199,.12), 0 0 80px rgba(127,159,199,.06);
+}
+
+body[data-invite="reception"][data-side="bride"] .opening-frame {
+  inset: clamp(1.35rem, 3.5vw, 2.5rem);
+  border-color: rgba(255,255,255,.1);
+  border-radius: 2rem;
+  background: linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.01));
+  box-shadow: inset 0 0 45px rgba(127,159,199,.04);
+  backdrop-filter: blur(2px);
+}
+
+body[data-invite="reception"][data-side="bride"] .opening-frame::before,
+body[data-invite="reception"][data-side="bride"] .opening-frame::after { content: "✦"; color: var(--glass-gold); background: #14243b; }
+body[data-invite="reception"][data-side="bride"] .opening-flourish { color: var(--glass-gold); text-shadow: 0 0 18px rgba(210,181,121,.45); }
+body[data-invite="reception"][data-side="bride"] .opening-title { color: var(--glass-gold-pale); font-size: .66rem; letter-spacing: .42em; }
+body[data-invite="reception"][data-side="bride"] .guest-greeting { color: rgba(247,251,255,.76); font: italic 500 clamp(1rem, 3vw, 1.35rem)/1.3 var(--literary); }
+
+body[data-invite="reception"][data-side="bride"] .envelope-button { gap: 1.1rem; color: var(--glass-gold-pale); }
+body[data-invite="reception"][data-side="bride"] .envelope-button:focus-visible { outline-color: var(--glass-gold); }
+body[data-invite="reception"][data-side="bride"] .envelope {
+  width: min(54vw, 260px);
+  aspect-ratio: .71;
+  filter: drop-shadow(0 0 32px rgba(127,159,199,.23));
+  perspective: none;
+  animation: monogram-float 5.2s ease-in-out infinite;
+}
+
+body[data-invite="reception"][data-side="bride"] .envelope-button:hover .envelope {
+  transform: scale(1.02);
+  filter: drop-shadow(0 0 42px rgba(127,159,199,.3));
+}
+
+body[data-invite="reception"][data-side="bride"] .envelope-back,
+body[data-invite="reception"][data-side="bride"] .envelope-pocket,
+body[data-invite="reception"][data-side="bride"] .envelope-flap,
+body[data-invite="reception"][data-side="bride"] .wax-seal { display: none; }
+
+body[data-invite="reception"][data-side="bride"] .invitation-card {
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--glass-gold-pale);
+  transform: none;
+  transition: transform .9s cubic-bezier(.2,.8,.2,1), filter .8s ease, opacity .55s ease .25s;
+}
+
+body[data-invite="reception"][data-side="bride"] .invitation-card::before {
+  content: "";
+  inset: 5% -18%;
+  border: 1px solid rgba(210,181,121,.22);
+  border-radius: 50%;
+  animation: orbit-turn 16s linear infinite;
+}
+
+body[data-invite="reception"][data-side="bride"] .invitation-card::after {
+  content: "";
+  inset: 17% -35%;
+  border: 1px solid rgba(127,159,199,.14);
+  border-radius: 50%;
+  transform: rotate(58deg);
+}
+
+body[data-invite="reception"][data-side="bride"] .invitation-card img {
+  content: url("reception-monogram.png");
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: contain;
+  mix-blend-mode: normal;
+  opacity: 1;
+  filter: drop-shadow(0 0 18px rgba(127,159,199,.18));
+}
+
+body[data-invite="reception"][data-side="bride"] .invitation-card .card-kicker,
+body[data-invite="reception"][data-side="bride"] .invitation-card .card-names,
+body[data-invite="reception"][data-side="bride"] .invitation-card .card-rule { display: none; }
+
+body[data-invite="reception"][data-side="bride"] .invitation-card .card-date {
+  position: absolute;
+  bottom: 1.4rem;
+  color: var(--glass-gold-pale);
+  font: 500 .56rem var(--sans);
+  letter-spacing: .34em;
+}
+
+body[data-invite="reception"][data-side="bride"] .lace-trim {
+  z-index: 1;
+  top: 17%;
+  width: 44%;
+  height: 69%;
+  border: 1px solid rgba(174,201,183,.28);
+  background: linear-gradient(145deg, rgba(160,189,170,.11), rgba(127,159,199,.02));
+  box-shadow: inset 0 0 25px rgba(185,210,193,.05), 0 0 25px rgba(127,159,199,.04);
+  opacity: .78;
+}
+
+body[data-invite="reception"][data-side="bride"] .lace-left { left: -37%; border-radius: 100% 0 100% 0; transform: rotate(-23deg); }
+body[data-invite="reception"][data-side="bride"] .lace-right { right: -37%; border-radius: 0 100% 0 100%; transform: rotate(23deg); }
+body[data-invite="reception"][data-side="bride"] .lace-trim::after { inset: 14%; border: 1px solid rgba(210,181,121,.16); border-radius: inherit; }
+
+body[data-invite="reception"][data-side="bride"] .envelope::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 8%;
+  right: -23%;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  background: var(--glass-gold-pale);
+  box-shadow: -1.1rem .55rem 0 .05rem #172842, 0 0 24px rgba(234,219,184,.28);
+  opacity: .86;
+}
+
+body[data-invite="reception"][data-side="bride"] .envelope::after {
+  content: "✦";
+  position: absolute;
+  z-index: 4;
+  left: -21%;
+  top: 21%;
+  color: var(--glass-gold);
+  font-size: .72rem;
+  text-shadow: 2.4rem 4.5rem 0 rgba(247,251,255,.7), 1rem 10rem 0 rgba(210,181,121,.7), 16rem 13rem 0 rgba(247,251,255,.55);
+}
+
+body[data-invite="reception"][data-side="bride"] .opening-screen.is-opening .invitation-card {
+  transform: scale(1.16);
+  filter: drop-shadow(0 0 38px rgba(127,159,199,.32));
+  opacity: .25;
+}
+
+body[data-invite="reception"][data-side="bride"] .opening-screen.is-opening .envelope { animation-play-state: paused; }
+body[data-invite="reception"][data-side="bride"] .open-label { color: var(--glass-gold-pale); letter-spacing: .19em; }
+body[data-invite="reception"][data-side="bride"] .open-label b { font-weight: 500; }
+body[data-invite="reception"][data-side="bride"] .open-label i { background: linear-gradient(90deg, transparent, var(--glass-gold)); }
+body[data-invite="reception"][data-side="bride"] .opening-hint { color: rgba(247,251,255,.5); }
+
+body[data-invite="reception"][data-side="bride"] .hero {
+  min-height: 100svh;
+  color: var(--glass-white);
+  background:
+    radial-gradient(circle at 18% 24%, rgba(127,159,199,.2), transparent 24rem),
+    radial-gradient(circle at 82% 72%, rgba(138,155,133,.17), transparent 25rem),
+    radial-gradient(circle at 76% 18%, rgba(255,255,255,.55) 0 1px, transparent 1.6px),
+    radial-gradient(circle at 23% 67%, rgba(210,181,121,.62) 0 1px, transparent 1.6px),
+    linear-gradient(145deg, #0d1728, #192c48 56%, #102037);
+  background-size: auto, auto, 11rem 13rem, 13rem 10rem, auto;
+}
+
+body[data-invite="reception"][data-side="bride"] .hero::before {
+  inset: clamp(1rem, 4vw, 2.4rem);
+  border-color: rgba(210,181,121,.42);
+  border-radius: 2.8rem;
+  box-shadow: inset 0 0 0 5px rgba(13,23,40,.72), inset 0 0 0 6px rgba(127,159,199,.12);
+}
+
+body[data-invite="reception"][data-side="bride"] .hero-content {
+  max-width: 48rem;
+  padding: clamp(2rem, 5vw, 4rem);
+  border: 1px solid rgba(247,251,255,.12);
+  border-radius: 2.5rem;
+  background: linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.025));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 30px 80px rgba(1,8,18,.24);
+  backdrop-filter: blur(14px);
+}
+
+body[data-invite="reception"][data-side="bride"] .hero-monogram {
+  content: url("reception-monogram.png");
+  width: clamp(7rem, 18vw, 10rem);
+  height: clamp(7rem, 18vw, 10rem);
+  margin: 1rem auto .3rem;
+  object-fit: contain;
+  mix-blend-mode: normal;
+  opacity: 1;
+  filter: drop-shadow(0 0 20px rgba(127,159,199,.18));
+}
+
+body[data-invite="reception"][data-side="bride"] .bismillah,
+body[data-invite="reception"][data-side="bride"] .hero .eyebrow { color: var(--glass-gold-pale); }
+body[data-invite="reception"][data-side="bride"] .hero h1 { color: white; font-family: var(--serif); font-size: clamp(3.6rem, 9vw, 6rem); font-weight: 400; line-height: .84; letter-spacing: -.045em; text-shadow: 0 10px 30px rgba(2,10,20,.28); }
+body[data-invite="reception"][data-side="bride"] .hero h1 small { color: var(--glass-gold); }
+body[data-invite="reception"][data-side="bride"] .invitation-line { color: rgba(247,251,255,.7); }
+body[data-invite="reception"][data-side="bride"] .invite-badge { border-color: rgba(210,181,121,.64); color: var(--glass-gold-pale); background: rgba(255,255,255,.035); }
+body[data-invite="reception"][data-side="bride"] .scroll-cue { color: rgba(247,251,255,.56); }
+body[data-invite="reception"][data-side="bride"] .botanical { opacity: .58; }
+body[data-invite="reception"][data-side="bride"] .botanical::before { border-color: rgba(174,201,183,.4); background: rgba(174,201,183,.025); backdrop-filter: blur(4px); }
+body[data-invite="reception"][data-side="bride"] .botanical::after { border-color: rgba(210,181,121,.34); }
+
+body[data-invite="reception"][data-side="bride"] .verse-section {
+  color: var(--glass-gold-pale);
+  background:
+    radial-gradient(circle at 50% 0, rgba(127,159,199,.16), transparent 22rem),
+    linear-gradient(145deg, #15263d, #0e192b);
+}
+body[data-invite="reception"][data-side="bride"] .verse-section blockquote { color: var(--glass-gold-pale); }
+body[data-invite="reception"][data-side="bride"] .verse-credit { color: rgba(247,251,255,.52); }
+
+body[data-invite="reception"][data-side="bride"] .parents-section { background: linear-gradient(145deg, #edf2ef, #f8f4e9); }
+body[data-invite="reception"][data-side="bride"] .parents-grid article { padding: 2.2rem 1.5rem; border: 1px solid rgba(127,159,199,.22); border-radius: 1.5rem; background: rgba(255,255,255,.46); box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 16px 42px rgba(28,48,67,.06); backdrop-filter: blur(8px); }
+
+body[data-invite="reception"][data-side="bride"] .date-section { background: linear-gradient(145deg, #14243a, #203954); }
+body[data-invite="reception"][data-side="bride"] .date-card { border-color: rgba(210,181,121,.4); border-radius: 2rem; background: rgba(255,255,255,.035); backdrop-filter: blur(8px); }
+body[data-invite="reception"][data-side="bride"] .date-card .eyebrow { color: var(--glass-gold-pale); }
+
+body[data-invite="reception"][data-side="bride"] .events-section { background: linear-gradient(180deg, #f7f3e8, #e8efec); }
+body[data-invite="reception"][data-side="bride"] .event-card {
+  border-color: rgba(127,159,199,.3);
+  border-radius: 1.6rem;
+  background: linear-gradient(145deg, rgba(255,255,255,.7), rgba(221,232,235,.54));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.86), 0 24px 58px rgba(28,48,67,.09);
+  backdrop-filter: blur(10px);
+}
+body[data-invite="reception"][data-side="bride"] .venue-card { border: 1px solid rgba(138,155,133,.3); border-radius: 1.6rem; background: linear-gradient(145deg, rgba(220,231,223,.8), rgba(238,240,231,.8)); box-shadow: 0 20px 50px rgba(28,48,67,.07); }
+body[data-invite="reception"][data-side="bride"] .button { border-radius: 999px; }
+
+body[data-invite="reception"][data-side="bride"] .timeline-section { background: #fbf8f0; }
+body[data-invite="reception"][data-side="bride"] .rsvp-section { background: radial-gradient(circle at 80% 20%, rgba(127,159,199,.18), transparent 23rem), linear-gradient(145deg, #101b2f, #1b304b); }
+body[data-invite="reception"][data-side="bride"] .rsvp-shell { border-color: rgba(210,181,121,.3); border-radius: 2rem; background: rgba(255,255,255,.025); backdrop-filter: blur(9px); }
+body[data-invite="reception"][data-side="bride"] .contact-section { background: linear-gradient(180deg, #e8efec, #f8f4e9); }
+body[data-invite="reception"][data-side="bride"] .contact-family { border-radius: 1.4rem; background: rgba(255,255,255,.56); box-shadow: 0 18px 44px rgba(28,48,67,.06); }
+body[data-invite="reception"][data-side="bride"] footer { color: white; background: var(--glass-midnight); }
+body[data-invite="reception"][data-side="bride"] footer img { content: url("reception-monogram.png"); width: 5rem; height: 5rem; object-fit: contain; mix-blend-mode: normal; opacity: 1; }
+body[data-invite="reception"][data-side="bride"] footer p { color: rgba(247,251,255,.6); }
+
+@keyframes monogram-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-.55rem); } }
+@keyframes orbit-turn { to { transform: rotate(360deg); } }
+@keyframes celestial-drift { from { transform: scale(1) rotate(-1deg); } to { transform: scale(1.04) rotate(1deg); } }
+
+@media (max-width: 720px) {
+  body[data-invite="reception"][data-side="bride"] .opening-screen { padding: 1rem; }
+  body[data-invite="reception"][data-side="bride"] .opening-copy { margin-bottom: .65rem; }
+  body[data-invite="reception"][data-side="bride"] .guest-greeting { max-width: 18rem; font-size: 1rem; }
+  body[data-invite="reception"][data-side="bride"] .envelope { width: min(50vw, 205px); }
+  body[data-invite="reception"][data-side="bride"] .opening-hint { max-width: 17rem; font-size: .66rem; }
+  body[data-invite="reception"][data-side="bride"] .hero-content { margin: .8rem; padding: 2rem 1rem; border-radius: 2rem; }
+  body[data-invite="reception"][data-side="bride"] .hero h1 { font-size: clamp(3.1rem, 15vw, 4.6rem); }
+}
