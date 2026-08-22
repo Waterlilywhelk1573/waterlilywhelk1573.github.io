@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,ital,wght@6..96,400;6..96,500;6..96,600;6..96,700;6..96,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@300;400;500;600&family=Parisienne&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260823-9" />
+    <link rel="stylesheet" href="styles.css?v=20260823-10" />
   </head>
   <body class="is-locked">
     <a class="skip-link" href="#main-content">Terus ke kandungan</a>
@@ -54,6 +54,14 @@
       <span id="musicLabel">Muzik belum ditambah</span>
     </button>
     <audio id="backgroundMusic" loop preload="none"></audio>
+
+    <nav class="quick-nav" id="quickNav" aria-label="Navigasi pantas">
+      <a class="is-active" href="#utama" data-nav-target="utama"><span aria-hidden="true">⌂</span><small>Utama</small></a>
+      <a href="#tarikh" data-nav-target="tarikh"><span aria-hidden="true">14</span><small>Tarikh</small></a>
+      <a href="#acara" data-nav-target="acara"><span aria-hidden="true">❦</span><small>Majlis</small></a>
+      <a href="#lokasi" data-nav-target="lokasi"><span aria-hidden="true">⌖</span><small>Lokasi</small></a>
+      <a href="#rsvp" data-nav-target="rsvp"><span aria-hidden="true">✓</span><small>RSVP</small></a>
+    </nav>
 
     <header class="hero" id="utama">
       <div class="botanical botanical-left" aria-hidden="true"></div>
@@ -100,7 +108,7 @@
         </div>
       </section>
 
-      <section class="date-section section-pad">
+      <section class="date-section section-pad" id="tarikh">
         <div class="date-card reveal">
           <p class="eyebrow">Insya-Allah</p>
           <div class="date-display">
@@ -149,7 +157,7 @@
           </div>
         </article>
 
-        <div class="venue-card reveal">
+        <div class="venue-card reveal" id="lokasi">
           <p class="eyebrow">Lokasi</p>
           <h3>Sam Sweet Gardens</h3>
           <address>Lot 3858, Lorong Tali Air, Jalan Hospital,<br />Bandar Kota Bharu, 15200 Kota Bharu, Kelantan</address>
@@ -266,6 +274,6 @@
     </footer>
 
     <script src="config.js"></script>
-    <script src="app.js?v=20260823-9"></script>
+    <script src="app.js?v=20260823-10"></script>
   </body>
 </html>

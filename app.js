@@ -149,6 +149,34 @@
   updateCountdown();
   window.setInterval(updateCountdown, 1000);
 
+  const quickNavLinks = [...document.querySelectorAll(".quick-nav a[data-nav-target]")];
+  const setActiveNav = (targetId) => {
+    quickNavLinks.forEach((link) => {
+      const isActive = link.dataset.navTarget === targetId;
+      link.classList.toggle("is-active", isActive);
+      if (isActive) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+  };
+
+  quickNavLinks.forEach((link) => {
+    link.addEventListener("click", () => setActiveNav(link.dataset.navTarget));
+  });
+
+  if ("IntersectionObserver" in window) {
+    const navigationObserver = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible?.target?.id) setActiveNav(visible.target.id);
+    }, { rootMargin: "-24% 0px -58%", threshold: [0.05, 0.25, 0.55] });
+
+    quickNavLinks.forEach((link) => {
+      const section = document.getElementById(link.dataset.navTarget);
+      if (section) navigationObserver.observe(section);
+    });
+  }
+
   const attendanceInputs = [...rsvpForm.querySelectorAll('input[name="attendance"]')];
   attendanceInputs.forEach((input) => input.addEventListener("change", () => {
     const attending = input.value === "Hadir";
