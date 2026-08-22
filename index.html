@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,ital,wght@6..96,400;6..96,500;6..96,600;6..96,700;6..96,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@300;400;500;600&family=Parisienne&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260823-15" />
+    <link rel="stylesheet" href="styles.css?v=20260823-16" />
   </head>
   <body class="is-locked">
     <a class="skip-link" href="#main-content">Terus ke kandungan</a>
@@ -205,22 +205,24 @@
             <input type="hidden" name="familySide" id="familySide" />
             <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-            <label>Nama penuh
-              <input type="text" name="name" autocomplete="name" maxlength="100" required placeholder="Nama anda" />
+            <p class="required-note"><span aria-hidden="true">*</span> Medan wajib diisi</p>
+
+            <label>Nama penuh <span class="required-mark" aria-hidden="true">*</span>
+              <input type="text" name="name" autocomplete="name" minlength="3" maxlength="100" required placeholder="Nama anda" />
             </label>
 
-            <label>Nombor telefon
-              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="20" required placeholder="Contoh: 0123456789" />
-              <small>Gunakan nombor yang sama jika anda mahu mengemas kini jawapan.</small>
+            <label>Nombor telefon <span class="required-mark" aria-hidden="true">*</span>
+              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="20" required placeholder="Contoh: 0123456789" aria-describedby="phoneHelp" />
+              <small id="phoneHelp">Gunakan nombor Malaysia yang aktif. Nombor yang sama boleh digunakan untuk mengemas kini jawapan.</small>
             </label>
 
             <fieldset>
-              <legend>Adakah anda akan hadir?</legend>
+              <legend>Adakah anda akan hadir? <span class="required-mark" aria-hidden="true">*</span></legend>
               <label class="radio-card"><input type="radio" name="attendance" value="Hadir" required /><span>Insya-Allah, saya hadir</span></label>
               <label class="radio-card"><input type="radio" name="attendance" value="Tidak Hadir" required /><span>Maaf, saya tidak dapat hadir</span></label>
             </fieldset>
 
-            <label id="guestCountLabel">Jumlah tetamu termasuk anda
+            <label id="guestCountLabel">Jumlah tetamu termasuk anda <span class="required-mark" aria-hidden="true">*</span>
               <select name="guestCount" id="guestCount" required>
                 <option value="">Pilih jumlah</option>
                 <option value="1">1 orang</option>
@@ -230,7 +232,7 @@
               </select>
             </label>
 
-            <label id="sidePickerLabel" hidden>Jemputan daripada keluarga
+            <label id="sidePickerLabel" hidden>Jemputan daripada keluarga <span class="required-mark" aria-hidden="true">*</span>
               <select id="sidePicker">
                 <option value="">Pilih keluarga</option>
                 <option value="bride">Pengantin perempuan</option>
@@ -238,13 +240,23 @@
               </select>
             </label>
 
-            <label class="consent"><input type="checkbox" name="consent" required /><span>Saya bersetuju maklumat ini digunakan untuk pengurusan kehadiran majlis.</span></label>
+            <label class="consent"><input type="checkbox" name="consent" required /><span>Saya bersetuju maklumat ini digunakan untuk pengurusan kehadiran majlis. <span class="required-mark" aria-hidden="true">*</span></span></label>
 
-            <button class="button submit-button" type="submit">Hantar RSVP</button>
+            <button class="button submit-button" type="submit"><span class="submit-spinner" aria-hidden="true"></span><span id="submitButtonText">Hantar RSVP</span></button>
             <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
           </form>
         </div>
       </section>
+
+      <div class="rsvp-success" id="rsvpSuccess" role="dialog" aria-modal="true" aria-labelledby="rsvpSuccessTitle" hidden>
+        <div class="rsvp-success-card">
+          <span class="success-mark" aria-hidden="true">✓</span>
+          <p class="eyebrow">RSVP berjaya dihantar</p>
+          <h2 id="rsvpSuccessTitle">Terima kasih</h2>
+          <p>Jawapan anda telah dihantar. Gunakan nombor telefon yang sama jika anda ingin mengemas kini jawapan sebelum <strong>30 Oktober 2026</strong>.</p>
+          <button class="button success-close" id="closeRsvpSuccess" type="button">Selesai</button>
+        </div>
+      </div>
 
       <section class="contact-section section-pad" id="hubungi">
         <div class="section-heading reveal">
@@ -278,6 +290,6 @@
     </footer>
 
     <script src="config.js"></script>
-    <script src="app.js?v=20260823-10"></script>
+    <script src="app.js?v=20260823-16"></script>
   </body>
 </html>

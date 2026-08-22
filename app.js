@@ -35,6 +35,13 @@
   const familyThemeRow = document.getElementById("familyThemeRow");
   const solemnisationTheme = document.getElementById("solemnisationTheme");
   const solemnisationThemeRow = document.getElementById("solemnisationThemeRow");
+  const submitButton = rsvpForm.querySelector('button[type="submit"]');
+  const submitButtonText = document.getElementById("submitButtonText");
+  const nameInput = rsvpForm.querySelector('input[name="name"]');
+  const phoneInput = rsvpForm.querySelector('input[name="phone"]');
+  const consentInput = rsvpForm.querySelector('input[name="consent"]');
+  const rsvpSuccess = document.getElementById("rsvpSuccess");
+  const closeRsvpSuccess = document.getElementById("closeRsvpSuccess");
 
   document.body.dataset.invite = invitationType;
   document.body.dataset.side = lockedSide || "public";
@@ -179,6 +186,8 @@
 
   const attendanceInputs = [...rsvpForm.querySelectorAll('input[name="attendance"]')];
   attendanceInputs.forEach((input) => input.addEventListener("change", () => {
+    attendanceInputs.forEach((option) => option.setCustomValidity(""));
+    input.closest("fieldset")?.classList.remove("is-invalid");
     const attending = input.value === "Hadir";
     guestCount.disabled = !attending;
     guestCount.required = attending;
@@ -186,16 +195,100 @@
     guestCountLabel.style.opacity = attending ? "1" : ".55";
   }));
 
+  const fieldContainer = (field) => field.type === "radio"
+    ? field.closest("fieldset")
+    : field.closest("label");
+
+  const clearFieldError = (field) => {
+    field.setCustomValidity("");
+    fieldContainer(field)?.classList.remove("is-invalid");
+  };
+
+  [...rsvpForm.querySelectorAll("input, select")].forEach((field) => {
+    if (field.classList.contains("honeypot") || field.type === "hidden") return;
+    field.addEventListener("input", () => clearFieldError(field));
+    field.addEventListener("change", () => clearFieldError(field));
+    field.addEventListener("invalid", () => fieldContainer(field)?.classList.add("is-invalid"));
+  });
+
+  const validateRsvp = () => {
+    const trimmedName = nameInput.value.trim();
+    nameInput.setCustomValidity(trimmedName.length >= 3
+      ? ""
+      : "Sila masukkan nama penuh anda, sekurang-kurangnya tiga aksara.");
+
+    const phoneDigits = phoneInput.value.replace(/\D/g, "");
+    const validPhone = /^01\d{8,9}$/.test(phoneDigits) || /^601\d{8,9}$/.test(phoneDigits);
+    phoneInput.setCustomValidity(validPhone
+      ? ""
+      : "Sila masukkan nombor telefon Malaysia yang sah, contohnya 0123456789.");
+
+    const attendanceSelected = attendanceInputs.some((input) => input.checked);
+    attendanceInputs[0].setCustomValidity(attendanceSelected
+      ? ""
+      : "Sila pilih sama ada anda akan hadir atau tidak.");
+
+    guestCount.setCustomValidity(guestCount.disabled || guestCount.value
+      ? ""
+      : "Sila pilih jumlah tetamu termasuk anda.");
+
+    sidePicker.setCustomValidity(!sidePicker.required || sidePicker.value
+      ? ""
+      : "Sila pilih pihak keluarga yang menjemput anda.");
+
+    consentInput.setCustomValidity(consentInput.checked
+      ? ""
+      : "Sila tandakan persetujuan penggunaan maklumat RSVP.");
+
+    const valid = rsvpForm.checkValidity();
+    if (!valid) {
+      [...rsvpForm.elements].forEach((field) => {
+        if (field instanceof HTMLElement && typeof field.checkValidity === "function" && !field.checkValidity()) {
+          fieldContainer(field)?.classList.add("is-invalid");
+        }
+      });
+    }
+    return valid;
+  };
+
   const setStatus = (message, isError = false) => {
     formStatus.textContent = message;
     formStatus.style.color = isError ? "#ffe3dc" : "#fff8e9";
+    formStatus.classList.toggle("is-error", isError);
   };
+
+  const showRsvpSuccess = () => {
+    rsvpSuccess.hidden = false;
+    requestAnimationFrame(() => rsvpSuccess.classList.add("is-visible"));
+    closeRsvpSuccess.focus();
+  };
+
+  const hideRsvpSuccess = () => {
+    rsvpSuccess.classList.remove("is-visible");
+    window.setTimeout(() => {
+      rsvpSuccess.hidden = true;
+      submitButton.focus();
+    }, 250);
+  };
+
+  closeRsvpSuccess.addEventListener("click", hideRsvpSuccess);
+  rsvpSuccess.addEventListener("click", (event) => {
+    if (event.target === rsvpSuccess) hideRsvpSuccess();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !rsvpSuccess.hidden) hideRsvpSuccess();
+  });
 
   rsvpForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     setStatus("");
 
-    if (!rsvpForm.reportValidity()) return;
+    if (!validateRsvp()) {
+      setStatus("Sila lengkapkan semua medan bertanda * sebelum menghantar.", true);
+      rsvpForm.reportValidity();
+      rsvpForm.querySelector(":invalid")?.focus();
+      return;
+    }
     if (Date.now() > new Date(config.rsvpDeadline).getTime()) {
       setStatus("Tempoh pengesahan RSVP telah berakhir. Sila hubungi pihak keluarga.", true);
       return;
@@ -217,9 +310,11 @@
       return;
     }
 
-    const submitButton = rsvpForm.querySelector('button[type="submit"]');
     submitButton.disabled = true;
-    submitButton.textContent = "Sedang dihantar…";
+    submitButton.classList.add("is-loading");
+    submitButtonText.textContent = "Sedang dihantar…";
+    rsvpForm.setAttribute("aria-busy", "true");
+    setStatus("Jawapan anda sedang dihantar…");
 
     const formData = new FormData(rsvpForm);
     formData.set("submittedAt", new Date().toISOString());
@@ -239,12 +334,15 @@
       guestCount.disabled = false;
       guestCount.required = true;
       guestCountLabel.style.opacity = "1";
-      setStatus("Terima kasih. Jawapan RSVP anda telah dihantar. Gunakan nombor telefon yang sama jika ingin mengemas kini jawapan.");
+      setStatus("Jawapan RSVP berjaya dihantar.");
+      showRsvpSuccess();
     } catch {
       setStatus("Maaf, jawapan tidak dapat dihantar. Sila cuba lagi atau hubungi pihak keluarga.", true);
     } finally {
       submitButton.disabled = false;
-      submitButton.textContent = "Hantar RSVP";
+      submitButton.classList.remove("is-loading");
+      submitButtonText.textContent = "Hantar RSVP";
+      rsvpForm.removeAttribute("aria-busy");
     }
   });
 
