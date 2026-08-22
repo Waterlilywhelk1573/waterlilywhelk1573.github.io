@@ -1,0 +1,201 @@
+(() => {
+  "use strict";
+
+  const config = window.WEDDING_CONFIG || {};
+  const params = new URLSearchParams(window.location.search);
+  const requestedSide = params.get("side");
+  const requestedInvite = params.get("invite");
+  const guestName = (params.get("to") || "").trim().slice(0, 80);
+  const validSides = ["bride", "groom"];
+  const validInvites = ["family", "reception"];
+  const lockedSide = validSides.includes(requestedSide) ? requestedSide : "";
+  const invitationType = validInvites.includes(requestedInvite) ? requestedInvite : "reception";
+  const familySideNames = {
+    bride: "Pengantin Perempuan",
+    groom: "Pengantin Lelaki",
+  };
+  const openedAt = Date.now();
+
+  const openingScreen = document.getElementById("openingScreen");
+  const openButton = document.getElementById("openInvitation");
+  const musicControl = document.getElementById("musicControl");
+  const musicLabel = document.getElementById("musicLabel");
+  const musicIcon = document.getElementById("musicIcon");
+  const backgroundMusic = document.getElementById("backgroundMusic");
+  const inviteBadge = document.getElementById("inviteBadge");
+  const invitationTypeInput = document.getElementById("invitationType");
+  const familySideInput = document.getElementById("familySide");
+  const sidePickerLabel = document.getElementById("sidePickerLabel");
+  const sidePicker = document.getElementById("sidePicker");
+  const rsvpForm = document.getElementById("rsvpForm");
+  const formStatus = document.getElementById("formStatus");
+  const guestCount = document.getElementById("guestCount");
+  const guestCountLabel = document.getElementById("guestCountLabel");
+
+  if (guestName) {
+    document.getElementById("guestGreeting").textContent = `Istimewa buat ${guestName}`;
+  }
+
+  invitationTypeInput.value = invitationType === "family"
+    ? "Keluarga (Akad Nikah + Resepsi)"
+    : "Resepsi";
+
+  if (lockedSide) {
+    familySideInput.value = familySideNames[lockedSide];
+  } else {
+    sidePickerLabel.hidden = false;
+    sidePicker.required = true;
+  }
+
+  if (invitationType === "family") {
+    document.querySelectorAll("[data-family-only]").forEach((element) => {
+      element.hidden = false;
+    });
+    document.getElementById("receptionNumber").textContent = "02";
+    inviteBadge.textContent = "Jemputan Akad Nikah & Majlis Resepsi";
+  }
+
+  document.getElementById("mapsButton").href = config.mapsUrl || "#";
+  document.getElementById("wazeButton").href = config.wazeUrl || "#";
+
+  if (config.musicUrl) {
+    backgroundMusic.src = config.musicUrl;
+    musicControl.setAttribute("aria-disabled", "false");
+    musicLabel.textContent = "Muzik";
+  }
+
+  const tryPlayMusic = async () => {
+    if (!config.musicUrl) return;
+    try {
+      await backgroundMusic.play();
+      musicControl.dataset.state = "playing";
+      musicIcon.textContent = "♫";
+      musicLabel.textContent = "Hentikan muzik";
+    } catch {
+      musicLabel.textContent = "Mainkan muzik";
+    }
+  };
+
+  openButton.addEventListener("click", () => {
+    openingScreen.classList.add("is-opening");
+    tryPlayMusic();
+    window.setTimeout(() => {
+      openingScreen.classList.add("is-open");
+      document.body.classList.remove("is-locked");
+      document.querySelector(".hero h1").focus?.();
+    }, 1100);
+  }, { once: true });
+
+  musicControl.addEventListener("click", async () => {
+    if (!config.musicUrl) return;
+    if (backgroundMusic.paused) {
+      await tryPlayMusic();
+    } else {
+      backgroundMusic.pause();
+      musicControl.dataset.state = "paused";
+      musicIcon.textContent = "♪";
+      musicLabel.textContent = "Mainkan muzik";
+    }
+  });
+
+  const updateCountdown = () => {
+    const target = new Date(config.weddingDateTime || "2026-11-14T09:00:00+08:00").getTime();
+    const remaining = Math.max(0, target - Date.now());
+    const day = 86400000;
+    const hour = 3600000;
+    const minute = 60000;
+    document.getElementById("days").textContent = Math.floor(remaining / day);
+    document.getElementById("hours").textContent = Math.floor((remaining % day) / hour);
+    document.getElementById("minutes").textContent = Math.floor((remaining % hour) / minute);
+    document.getElementById("seconds").textContent = Math.floor((remaining % minute) / 1000);
+  };
+
+  updateCountdown();
+  window.setInterval(updateCountdown, 1000);
+
+  const attendanceInputs = [...rsvpForm.querySelectorAll('input[name="attendance"]')];
+  attendanceInputs.forEach((input) => input.addEventListener("change", () => {
+    const attending = input.value === "Hadir";
+    guestCount.disabled = !attending;
+    guestCount.required = attending;
+    guestCount.value = attending ? guestCount.value : "0";
+    guestCountLabel.style.opacity = attending ? "1" : ".55";
+  }));
+
+  const setStatus = (message, isError = false) => {
+    formStatus.textContent = message;
+    formStatus.style.color = isError ? "#ffe3dc" : "#fff8e9";
+  };
+
+  rsvpForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    setStatus("");
+
+    if (!rsvpForm.reportValidity()) return;
+    if (Date.now() > new Date(config.rsvpDeadline).getTime()) {
+      setStatus("Tempoh pengesahan RSVP telah berakhir. Sila hubungi pihak keluarga.", true);
+      return;
+    }
+    if (Date.now() - openedAt < 2500) {
+      setStatus("Sila semak maklumat anda sebelum menghantar.", true);
+      return;
+    }
+    if (!lockedSide) {
+      if (!sidePicker.value) {
+        sidePicker.focus();
+        setStatus("Sila pilih pihak keluarga yang menjemput anda.", true);
+        return;
+      }
+      familySideInput.value = familySideNames[sidePicker.value];
+    }
+    if (!config.rsvpEndpoint) {
+      setStatus("Borang ini belum disambungkan ke Google Sheets. Ikuti panduan persediaan sebelum menerbitkan laman.", true);
+      return;
+    }
+
+    const submitButton = rsvpForm.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.textContent = "Sedang dihantar…";
+
+    const formData = new FormData(rsvpForm);
+    formData.set("submittedAt", new Date().toISOString());
+    formData.set("sourceUrl", window.location.href.slice(0, 500));
+
+    try {
+      await fetch(config.rsvpEndpoint, {
+        method: "POST",
+        mode: "no-cors",
+        body: new URLSearchParams([...formData.entries()]),
+      });
+      rsvpForm.reset();
+      invitationTypeInput.value = invitationType === "family"
+        ? "Keluarga (Akad Nikah + Resepsi)"
+        : "Resepsi";
+      familySideInput.value = lockedSide ? familySideNames[lockedSide] : "";
+      guestCount.disabled = false;
+      guestCount.required = true;
+      guestCountLabel.style.opacity = "1";
+      setStatus("Terima kasih. Jawapan RSVP anda telah dihantar. Gunakan nombor telefon yang sama jika ingin mengemas kini jawapan.");
+    } catch {
+      setStatus("Maaf, jawapan tidak dapat dihantar. Sila cuba lagi atau hubungi pihak keluarga.", true);
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = "Hantar RSVP";
+    }
+  });
+
+  const revealItems = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealItems.forEach((item) => observer.observe(item));
+  } else {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+  }
+})();
