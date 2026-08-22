@@ -2394,3 +2394,20 @@ body[data-invite="reception"][data-side="bride"] .hero h1 {
     line-height: .84;
   }
 }
+
+/* Main invitation copy placement */
+.hero-main {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  body[data-invite="reception"][data-side="bride"] .hero-main {
+    /* Increase this value to move the main text lower; decrease it to move the text higher. */
+    transform: translateY(3.4rem);
+  }
+}
