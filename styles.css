@@ -2422,3 +2422,30 @@ body[data-invite="reception"][data-side="bride"] .contact-grid {
   grid-template-columns: minmax(0, 44rem);
   justify-content: center;
 }
+
+/* Keep the blessing and monogram in normal document flow so they never overlap. */
+body[data-invite="reception"][data-side="bride"] .hero-content {
+  align-content: start;
+}
+
+body[data-invite="reception"][data-side="bride"] .hero-blessing {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: min(90%, 32rem);
+  margin: clamp(7rem, 9vw, 10rem) auto 1.75rem;
+  transform: none;
+}
+
+@media (max-width: 720px) {
+  body[data-invite="reception"][data-side="bride"] .hero-blessing {
+    /* Change this margin to move both introductory lines while preserving the gap above the logo. */
+    top: auto;
+    margin-top: 9.5rem;
+    margin-bottom: 2rem;
+  }
+
+  body[data-invite="reception"][data-side="bride"] .hero-main {
+    transform: none;
+  }
+}
