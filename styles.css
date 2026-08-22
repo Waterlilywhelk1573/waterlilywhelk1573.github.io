@@ -434,7 +434,7 @@ blockquote { max-width: 48rem; margin: 1.4rem auto .8rem; color: var(--dusty-blu
 .parents-grid h3 { margin: .35rem 0; font: 500 clamp(1.5rem, 3vw, 2.15rem)/1.15 var(--serif); }
 .parents-grid article > span { color: var(--champagne); font-family: var(--serif); font-style: italic; }
 .family-label { color: var(--dusty-blue-deep); font-size: .66rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
-.gold-divider { display: grid; place-items: center; width: 4.6rem; height: 9rem; border-left: 1px solid var(--champagne-pale); border-right: 1px solid var(--champagne-pale); color: var(--dusty-blue-deep); font-family: var(--serif); font-size: 1.35rem; }
+.gold-divider { display: grid; place-items: center; justify-self: center; width: 4.6rem; height: 9rem; margin-inline: auto; border-left: 1px solid var(--champagne-pale); border-right: 1px solid var(--champagne-pale); color: var(--dusty-blue-deep); font-family: var(--serif); font-size: 1.35rem; }
 .gold-divider i { color: var(--champagne); }
 
 .date-section { background: linear-gradient(135deg, var(--dusty-blue-deep), #6e879b); }
@@ -2082,4 +2082,99 @@ body[data-invite="reception"][data-side="bride"] .music-control { border-color: 
   body[data-invite="reception"][data-side="bride"] .hero h1 { font-size: clamp(3.25rem, 16vw, 4.75rem); }
   body[data-invite="reception"][data-side="bride"] .invitation-line { max-width: 18rem; font-size: .94rem; }
   body[data-invite="reception"][data-side="bride"] .botanical { opacity: .45; }
+}
+
+/* Bride-reception refinements: centred divider, painted countdown and RSVP contrast */
+body[data-invite="reception"][data-side="bride"] .parents-grid .gold-divider {
+  justify-self: center;
+  margin-inline: auto;
+}
+
+body[data-invite="reception"][data-side="bride"] .countdown {
+  gap: clamp(.6rem, 2vw, 1rem);
+  max-width: 38rem;
+  margin-top: 2.4rem;
+}
+
+body[data-invite="reception"][data-side="bride"] .countdown div {
+  position: relative;
+  display: grid;
+  place-content: center;
+  min-height: clamp(7rem, 14vw, 9rem);
+  padding: 1.15rem .45rem .85rem;
+  overflow: hidden;
+  border: 1px solid rgba(255,253,248,.62);
+  border-radius: 999px 999px 1.65rem 1.65rem;
+  background:
+    radial-gradient(circle at 50% 16%, rgba(255,255,255,.92), transparent 2.6rem),
+    linear-gradient(155deg, rgba(255,253,248,.92), rgba(218,232,245,.82));
+  color: var(--paint-deep);
+  box-shadow: inset 0 1px 0 white, 0 13px 27px rgba(36,58,88,.15);
+  backdrop-filter: blur(6px);
+}
+
+body[data-invite="reception"][data-side="bride"] .countdown div:nth-child(even) {
+  background:
+    radial-gradient(circle at 50% 16%, rgba(255,255,255,.94), transparent 2.6rem),
+    linear-gradient(155deg, rgba(242,247,251,.94), rgba(230,219,196,.72));
+}
+
+body[data-invite="reception"][data-side="bride"] .countdown div::before {
+  content: "✾";
+  position: absolute;
+  top: .38rem;
+  left: 50%;
+  color: var(--paint-gold);
+  font-size: .72rem;
+  transform: translateX(-50%);
+}
+
+body[data-invite="reception"][data-side="bride"] .countdown div::after {
+  content: "";
+  position: absolute;
+  right: .7rem;
+  bottom: .55rem;
+  width: 1.7rem;
+  height: .7rem;
+  border-bottom: 1px solid rgba(120,139,108,.38);
+  border-radius: 50%;
+  transform: rotate(-18deg);
+}
+
+body[data-invite="reception"][data-side="bride"] .countdown strong {
+  color: var(--paint-deep);
+  font: 500 clamp(2rem, 5vw, 3.2rem)/1 var(--serif);
+}
+
+body[data-invite="reception"][data-side="bride"] .countdown span {
+  margin-top: .35rem;
+  color: rgba(48,67,95,.7);
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+}
+
+body[data-invite="reception"][data-side="bride"] .rsvp-section .section-heading h2 {
+  color: var(--paint-white);
+  text-shadow: 0 8px 24px rgba(25,42,67,.18);
+}
+
+body[data-invite="reception"][data-side="bride"] .rsvp-section .section-heading .eyebrow {
+  color: #f2dfbd;
+}
+
+body[data-invite="reception"][data-side="bride"] .rsvp-section .section-heading > p:not(.eyebrow) {
+  color: rgba(255,253,248,.88);
+}
+
+@media (max-width: 480px) {
+  body[data-invite="reception"][data-side="bride"] .countdown {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 19rem;
+    gap: .75rem;
+  }
+
+  body[data-invite="reception"][data-side="bride"] .countdown div {
+    min-height: 7.5rem;
+  }
 }
