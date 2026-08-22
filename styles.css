@@ -2330,7 +2330,7 @@ body.is-locked .quick-nav {
 body[data-invite="reception"][data-side="bride"] .hero-blessing {
   position: absolute;
   z-index: 3;
-  top: clamp(2.2rem, 5vw, 3.6rem);
+  top: clamp(8rem, 13vw, 15rem);
   left: 50%;
   width: min(90%, 32rem);
   text-align: center;
@@ -2372,7 +2372,8 @@ body[data-invite="reception"][data-side="bride"] .hero h1 {
   }
 
   body[data-invite="reception"][data-side="bride"] .hero-blessing {
-    top: 2rem;
+    /* Adjust this value to move the Bismillah and introductory line on phones. */
+    top: 13.25rem;
     width: calc(100% - 2.5rem);
   }
 
@@ -2410,4 +2411,14 @@ body[data-invite="reception"][data-side="bride"] .hero h1 {
     /* Increase this value to move the main text lower; decrease it to move the text higher. */
     transform: translateY(3.4rem);
   }
+}
+
+/* The bride reception link shows only the bride-family enquiry contacts. */
+body[data-invite="reception"][data-side="bride"] .groom-contacts {
+  display: none;
+}
+
+body[data-invite="reception"][data-side="bride"] .contact-grid {
+  grid-template-columns: minmax(0, 44rem);
+  justify-content: center;
 }
