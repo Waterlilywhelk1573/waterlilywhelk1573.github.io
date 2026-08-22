@@ -43,6 +43,8 @@
 
   if (invitationType === "family" && lockedSide === "bride") {
     document.getElementById("openLabelText").textContent = "Buka Gerbang Undangan";
+  } else if (invitationType === "family" && lockedSide === "groom") {
+    document.getElementById("openLabelText").textContent = "Buka Naskhah Undangan";
   }
 
   if (guestName) {
